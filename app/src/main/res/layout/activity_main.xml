@@ -63,7 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewNoAccount"
-        android:text="Risikopatient" />
+        android:text="Risikopatient 1" />
 
     <RadioButton
         android:id="@+id/radioButtonEmergencyContact2"
