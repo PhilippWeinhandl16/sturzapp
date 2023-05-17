@@ -15,7 +15,7 @@
         android:textStyle="bold" />
 
     <RadioGroup
-        android:id="@+id/radioGroup_account_auswahl"
+        android:id="@+id/radioGroup_account_auswahl1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_willkommenstext">
@@ -39,7 +39,7 @@
         android:id="@+id/editText_Email"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@id/radioGroup_account_auswahl"
+        android:layout_below="@id/radioGroup_account_auswahl1"
         android:hint="Email-Adresse" />
 
     <EditText
