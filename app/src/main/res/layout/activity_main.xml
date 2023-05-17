@@ -1,16 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textViewWelcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:layout_editor_absoluteX="194dp"
-        tools:layout_editor_absoluteY="445dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:text="Willkommen!"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <RadioButton
+        android:id="@+id/radioButtonRiskPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewWelcome"
+        android:text="Risikopatient" />
+
+    <RadioButton
+        android:id="@+id/radioButtonEmergencyContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioButtonRiskPatient"
+        android:text="Notfallkontakt" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioButtonEmergencyContact"
+        android:hint="Email-Adresse" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:hint="Passwort"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:text="Anmelden" />
+
+    <TextView
+        android:id="@+id/textViewNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLogin"
+        android:layout_marginTop="16dp"
+        android:text="Noch keinen Account?" />
+
+    <RadioButton
+        android:id="@+id/radioButtonRiskPatient2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewNoAccount"
+        android:text="Risikopatient" />
+
+    <RadioButton
+        android:id="@+id/radioButtonEmergencyContact2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioButtonRiskPatient2"
+        android:text="Notfallkontakt" />
+
+    <Button
+        android:id="@+id/buttonNextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/radioButtonEmergencyContact2"
+        android:layout_marginTop="16dp"
+        android:text="Zur nächsten Ansicht" />
+
+</RelativeLayout>
