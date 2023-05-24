@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-
         RadioGroup radioGroup_account_auswahl1 = findViewById(R.id.radioGroup_account_auswahl1);
 
 
@@ -39,13 +38,10 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent;
 
-                    if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
-                        intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
-                    } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
-                        intent = new Intent(MainActivity.this, );
-                    }
+
             }
-            }
+
+
         });
 
         RadioButton risikopatient2 = findViewById(R.id.radioButtonRiskPatient2);
@@ -56,15 +52,31 @@ public class MainActivity extends AppCompatActivity {
         button_accountErstellen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            Intent intent;
 
-            if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
-                intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
-            } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
-                intent = new Intent(MainActivity.this, );
+
+                RadioGroup radioGroup_account_auswahl2 = findViewById(R.id.radioGroup_account_auswahl2);
+                int selected_RadioButton = radioGroup_account_auswahl2.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(selected_RadioButton);
+
+                if(radioButton != null) {
+
+                String ausgewaehlterRadioButtonText = radioButton.getText().toString();
+
+
+                Intent intent;
+
+                if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
+                    intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
+                } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
+                    intent = new Intent(MainActivity.this, notfallkontakt_erstellen.class);
+                } else{
+                    intent = new Intent(MainActivity.this, DefaultActivity.class);
+
+                }
+
+                startActivity(intent);
             }
         });
 
-        //das ist ein Test 3
     }
 }
