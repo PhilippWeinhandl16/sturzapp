@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,23 +59,29 @@ public class MainActivity extends AppCompatActivity {
                 int selected_RadioButton = radioGroup_account_auswahl2.getCheckedRadioButtonId();
                 RadioButton radioButton = findViewById(selected_RadioButton);
 
-                if(radioButton != null) {
+                if (radioButton != null) {
 
-                String ausgewaehlterRadioButtonText = radioButton.getText().toString();
+                    String ausgewaehlterRadioButtonText = radioButton.getText().toString();
 
 
-                Intent intent;
+                    Intent intent;
 
-                if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
-                    intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
-                } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
-                    intent = new Intent(MainActivity.this, notfallkontakt_erstellen.class);
-                } else{
-                    intent = new Intent(MainActivity.this, DefaultActivity.class);
+                    if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
+                        intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
+                    } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
+                        intent = new Intent(MainActivity.this, notfallkontakt_erstellen.class);
+                    } else {
+                        intent = new Intent(MainActivity.this, DefaultActivity.class);
+
+                    }
+
+                    startActivity(intent);
+
+                } else {
+                    //wenn kein RadioButton ausgewählt ist
+                    Toast.makeText(MainActivity.this, "Bitte wählen Sie eine option aus", Toast.LENGTH_SHORT).show();
 
                 }
-
-                startActivity(intent);
             }
         });
 
