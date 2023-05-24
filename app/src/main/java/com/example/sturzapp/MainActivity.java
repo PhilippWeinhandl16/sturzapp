@@ -39,10 +39,12 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent;
 
-                    if (ausgewaehlterRadioButtonText.equals("Risikopatient")){
+                    if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
                         intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
-
-                }
+                    } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
+                        intent = new Intent(MainActivity.this, );
+                    }
+            }
             }
         });
 
@@ -54,7 +56,12 @@ public class MainActivity extends AppCompatActivity {
         button_accountErstellen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            Intent intent;
 
+            if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
+                intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
+            } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
+                intent = new Intent(MainActivity.this, );
             }
         });
 
