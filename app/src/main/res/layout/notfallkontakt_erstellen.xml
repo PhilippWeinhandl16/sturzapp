@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewEmergencyContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hier erstellen Sie einen 'Notfallkontakt' Accountant"
+        android:textColor="@color/material_dynamic_neutral50"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewEmergencyContact"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="E-Mail-Adresse" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmail"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Passwort"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/editTextFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextPassword"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Vorname" />
+
+    <EditText
+        android:id="@+id/editTextLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextFirstName"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Nachname" />
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextLastName"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Straße und Hausnummer" />
+
+    <EditText
+        android:id="@+id/editTextZipCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextAddress"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="PLZ und Ort" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/editTextZipCity"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white" />
+
+    <TextView
+        android:id="@+id/textViewRiskPatient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/divider"
+        android:layout_marginTop="16dp"
+        android:text="Hier erstellen Sie einen 'Risikopatient' Accountant"
+        android:textColor="@color/material_dynamic_neutral50"
+        android:textSize="18sp"
+        android:textStyle="normal" />
+
+    <EditText
+        android:id="@+id/editTextRiskPatientName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewRiskPatient"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Vor- und Nachname" />
+
+    <EditText
+        android:id="@+id/editTextRiskPatientAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRiskPatientName"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="Straße und Hausnummer" />
+
+    <EditText
+        android:id="@+id/editTextRiskPatientZipCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRiskPatientAddress"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="PLZ und Ort" />
+
+    <EditText
+        android:id="@+id/editTextRiskPatientEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRiskPatientZipCity"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:hint="E-Mail-Adresse" />
+
+    <Button
+        android:id="@+id/buttonCreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextRiskPatientEmail"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:text="Account erstellen"
+        android:textColor="@android:color/holo_blue_light" />
+
+</RelativeLayout>
+
