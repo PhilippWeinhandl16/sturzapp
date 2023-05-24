@@ -3,11 +3,13 @@ package com.example.sturzapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,19 +18,31 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RadioButton risikopatient1 = findViewById(R.id.radioButton_Risikopatient1);
-        RadioButton notfallpatient1 = findViewById(R.id.radioButton_Notfallkontakt1);
 
-        EditText editText_emailadresse = findViewById(R.id.editText_Email);
-        EditText editText_passwort = findViewById(R.id.editTextPassword);
+
+        RadioGroup radioGroup_account_auswahl1 = findViewById(R.id.radioGroup_account_auswahl1);
+
 
         Button button_login = findViewById(R.id.buttonLogin);
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                EditText editText_emailadresse = findViewById(R.id.editText_Email);
+                EditText editText_passwort = findViewById(R.id.editTextPassword);
+
                 String email_adresse = editText_emailadresse.getText().toString();
                 String passwort = editText_passwort.getText().toString();
 
+                int selected_RadioButton = radioGroup_account_auswahl1.getCheckedRadioButtonId();
+                RadioButton radioButton = findViewById(selected_RadioButton);
+                String ausgewaehlterRadioButtonText = radioButton.getText().toString();
+
+                Intent intent;
+
+                    if (ausgewaehlterRadioButtonText.equals("Risikopatient")){
+                        intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
+
+                }
             }
         });
 
