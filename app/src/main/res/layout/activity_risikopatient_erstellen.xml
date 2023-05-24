@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hier erstellen Sie einen 'Risikopatienten' Accountant"
-        android:textColor="@color/material_dynamic_neutral50"
         android:textSize="18sp"
         android:textStyle="normal" />
 
@@ -86,7 +85,6 @@
         android:layout_below="@id/divider"
         android:layout_marginTop="16dp"
         android:text="Eingabe des Notfallkontakts"
-        android:textColor="@color/material_dynamic_neutral50"
         android:textSize="18sp"
         android:textStyle="normal" />
 
@@ -134,7 +132,7 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:text="Account erstellen"
-        android:textColor="@color/material_dynamic_neutral50" />
+        android:textColor="@color/white" />
 
     <Button
         android:id="@+id/buttonZurückZurMainActivity"
@@ -144,7 +142,7 @@
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:text="Zurück zur Anmeldeseite"
-        android:textColor="@android:color/holo_blue_light" />
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>
