@@ -71,19 +71,12 @@
         android:background="@android:color/white"
         android:hint="PLZ und Ort" />
 
-    <View
-        android:id="@+id/divider"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/editTextZipCity"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white" />
 
     <TextView
         android:id="@+id/textViewEmergencyContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/divider"
+        android:layout_below="@id/editTextZipCity"
         android:layout_marginTop="16dp"
         android:text="Eingabe des Notfallkontakts"
         android:textSize="18sp"
