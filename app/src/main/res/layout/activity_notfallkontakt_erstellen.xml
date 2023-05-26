@@ -22,7 +22,8 @@
         android:layout_below="@id/textViewEmergencyContact"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:hint="E-Mail-Adresse" />
+        android:hint="E-Mail-Adresse"
+        />
 
     <EditText
         android:id="@+id/editTextPassword"
