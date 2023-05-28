@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textViewEmergencyContact"
+        android:id="@+id/textView_notfallkontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hier erstellen Sie einen 'Notfallkontakt' Accountant"
@@ -19,7 +19,7 @@
         android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEmergencyContact"
+        android:layout_below="@id/textView_notfallkontakt"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="E-Mail-Adresse"

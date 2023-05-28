@@ -8,21 +8,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class notfallkontakt_erstellen extends AppCompatActivity {
+public class risikopatient_erstellen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notfallkontakt_erstellen);
+        setContentView(R.layout.activity_risikopatient_erstellen);
 
-        Button button1 = findViewById(R.id.buttonZurückZurMainActivity);
-        button1.setOnClickListener(new View.OnClickListener() {
+        Button button = findViewById(R.id.buttonZurückZurMainActivity);
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent(notfallkontakt_erstellen.this, MainActivity.class);
+                Intent intent = new Intent(risikopatient_erstellen.this, MainActivity.class);
 
-                startActivity(intent1);
+                startActivity(intent);
+
             }
         });
 
@@ -36,7 +37,7 @@ public class notfallkontakt_erstellen extends AppCompatActivity {
 
                 String e_mail = editTextEmail.getText().toString();
 
-                Intent intent2 = new Intent(notfallkontakt_erstellen.this, notfallkontakt_startseite.class);
+                Intent intent2 = new Intent(risikopatient_erstellen.this, notfallkontakt_startseite.class);
                 intent2.putExtra("e_mail", e_mail);
 
                 startActivity(intent2);

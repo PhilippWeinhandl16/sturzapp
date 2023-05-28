@@ -12,14 +12,13 @@
         android:theme="@style/Theme.Sturzapp"
         tools:targetApi="31">
         <activity
+            android:name=".risikopatient_erstellen"
+            android:exported="false" />
+        <activity
             android:name=".notfallkontakt_startseite"
             android:exported="false" />
-
         <activity
             android:name=".risikopatient_startseite"
-            android:exported="false" />
-        <activity
-            android:name=".risikopatient_erstellen"
             android:exported="false" />
         <activity
             android:name=".notfallkontakt_erstellen"
