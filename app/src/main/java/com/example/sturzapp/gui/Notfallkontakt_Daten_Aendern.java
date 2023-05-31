@@ -1,8 +1,10 @@
-package com.example.sturzapp;
+package com.example.sturzapp.gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.sturzapp.R;
 
 public class Notfallkontakt_Daten_Aendern extends AppCompatActivity {
 

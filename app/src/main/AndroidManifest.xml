@@ -12,22 +12,22 @@
         android:theme="@style/Theme.Sturzapp"
         tools:targetApi="31">
         <activity
-            android:name=".Notfallkontakt_Daten_Aendern"
+            android:name=".gui.Notfallkontakt_Daten_Aendern"
             android:exported="false" />
         <activity
-            android:name=".Risikopatient_Daten_Aendern"
+            android:name=".gui.Risikopatient_Daten_Aendern"
             android:exported="false" />
         <activity
-            android:name=".Risikopatient_Startseite"
+            android:name=".gui.Risikopatient_Startseite"
             android:exported="false" />
         <activity
-            android:name=".Risikopatient_Erstellen"
+            android:name=".gui.Risikopatient_Erstellen"
             android:exported="false" />
         <activity
-            android:name=".Notfallkontakt_Startseite"
+            android:name=".gui.Notfallkontakt_Startseite"
             android:exported="false" />
         <activity
-            android:name=".Notfallkontakt_Erstellen"
+            android:name=".gui.Notfallkontakt_Erstellen"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
