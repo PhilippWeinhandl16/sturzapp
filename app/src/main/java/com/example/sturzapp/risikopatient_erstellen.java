@@ -33,11 +33,11 @@ public class risikopatient_erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                EditText editTextEmail = findViewById(R.id.editText_Email);
+                EditText editTextEmail = findViewById(R.id.editTextEmail);
 
                 String e_mail = editTextEmail.getText().toString();
 
-                Intent intent2 = new Intent(risikopatient_erstellen.this, notfallkontakt_startseite.class);
+                Intent intent2 = new Intent(risikopatient_erstellen.this, risikopatient_startseite.class);
                 intent2.putExtra("e_mail", e_mail);
 
                 startActivity(intent2);

@@ -16,9 +16,11 @@ public class risikopatient_startseite extends AppCompatActivity {
         setContentView(R.layout.activity_risikopatient_startseite);
 
         Intent intent = getIntent();
+        String e_mail = intent.getStringExtra("e_mail");
+
         TextView textViewEmail = findViewById(R.id.textViewEmail);
 
-        textViewEmail.setText("e_mail");
+        textViewEmail.setText(e_mail);
 
     }
 }

@@ -32,7 +32,7 @@ public class notfallkontakt_erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                EditText editTextEmail = findViewById(R.id.editText_Email);
+                EditText editTextEmail = findViewById(R.id.editTextEmail);
 
                 String e_mail = editTextEmail.getText().toString();
 
