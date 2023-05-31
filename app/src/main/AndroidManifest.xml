@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Sturzapp"
         tools:targetApi="31">
         <activity
+            android:name=".gui.risikopatient_gui.Riskiopatient_Notfallkontakt_Hinzufuegen"
+            android:exported="false" />
+        <activity
             android:name=".gui.notfallkontakt_gui.Notfallkontakt_Daten_Aendern"
             android:exported="false" />
         <activity

@@ -41,5 +41,14 @@
         android:layout_centerHorizontal="true"
         android:text="Daten ändern" />
 
+    <Button
+        android:id="@+id/buttonNotfallkontakt_Hinzufuegen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonDatenAendern"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Notfallkontakt hinzufügen" />
+
 </RelativeLayout>
 
