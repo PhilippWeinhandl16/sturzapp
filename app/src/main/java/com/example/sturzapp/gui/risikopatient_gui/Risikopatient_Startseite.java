@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.sturzapp.R;
@@ -22,6 +24,18 @@ public class Risikopatient_Startseite extends AppCompatActivity {
         TextView textViewEmail = findViewById(R.id.textViewEmail);
 
         textViewEmail.setText(e_mail);
+
+        Button button1 = findViewById(R.id.buttonNotfallkontakt_Hinzufuegen);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent1 = new Intent(Risikopatient_Startseite.this, Riskiopatient_Notfallkontakt_Hinzufuegen.class);
+
+                startActivity(intent1);
+            }
+        });
 
     }
 }

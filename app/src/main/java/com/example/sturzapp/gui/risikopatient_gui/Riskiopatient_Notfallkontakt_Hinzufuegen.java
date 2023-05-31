@@ -2,6 +2,7 @@ package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -32,6 +33,16 @@ public class Riskiopatient_Notfallkontakt_Hinzufuegen extends AppCompatActivity 
                 String nachname = editText_Nachname.getText().toString();
                 String strasse_und_hausnummer = editText_Strasse_und_Hausnummer.getText().toString();
                 String plz_und_ort = editText_PLZ_und_Ort.getText().toString();
+
+                Intent intent = new Intent(Riskiopatient_Notfallkontakt_Hinzufuegen.this, Risikopatient_Startseite.class);
+
+                intent.putExtra("e_mail", e_mail);
+                intent.putExtra("vorname", vorname);
+                intent.putExtra("nachname", nachname);
+                intent.putExtra("strasse_und_hausnummer", strasse_und_hausnummer);
+                intent.putExtra("plz_und_ort", plz_und_ort);
+
+                startActivity(intent);
             }
         });
 
