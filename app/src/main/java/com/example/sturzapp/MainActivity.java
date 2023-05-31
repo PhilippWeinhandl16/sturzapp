@@ -11,8 +11,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.sturzapp.gui.Notfallkontakt_Erstellen;
-import com.example.sturzapp.gui.Risikopatient_Erstellen;
+import com.example.sturzapp.gui.notfallkontakt_gui.Notfallkontakt_Erstellen;
+import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Erstellen;
 
 
 public class MainActivity extends AppCompatActivity {

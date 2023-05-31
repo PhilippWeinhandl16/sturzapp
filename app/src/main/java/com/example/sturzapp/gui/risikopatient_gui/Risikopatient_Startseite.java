@@ -1,4 +1,4 @@
-package com.example.sturzapp.gui;
+package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,12 +8,13 @@ import android.widget.TextView;
 
 import com.example.sturzapp.R;
 
-public class Notfallkontakt_Startseite extends AppCompatActivity {
+
+public class Risikopatient_Startseite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_notfallkontakt_startseite);
+        setContentView(R.layout.activity_risikopatient_startseite);
 
         Intent intent = getIntent();
         String e_mail = intent.getStringExtra("e_mail");

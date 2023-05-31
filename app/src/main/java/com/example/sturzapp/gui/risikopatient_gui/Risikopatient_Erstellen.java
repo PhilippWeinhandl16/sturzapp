@@ -1,4 +1,4 @@
-package com.example.sturzapp.gui;
+package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
