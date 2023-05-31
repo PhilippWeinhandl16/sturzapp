@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class notfallkontakt_erstellen extends AppCompatActivity {
+public class Notfallkontakt_Erstellen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class notfallkontakt_erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent(notfallkontakt_erstellen.this, MainActivity.class);
+                Intent intent1 = new Intent(Notfallkontakt_Erstellen.this, MainActivity.class);
 
                 startActivity(intent1);
             }
@@ -36,7 +36,7 @@ public class notfallkontakt_erstellen extends AppCompatActivity {
 
                 String e_mail = editTextEmail.getText().toString();
 
-                Intent intent2 = new Intent(notfallkontakt_erstellen.this, notfallkontakt_startseite.class);
+                Intent intent2 = new Intent(Notfallkontakt_Erstellen.this, Notfallkontakt_Startseite.class);
                 intent2.putExtra("e_mail", e_mail);
 
                 startActivity(intent2);

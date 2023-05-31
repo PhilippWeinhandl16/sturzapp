@@ -2,7 +2,6 @@ package com.example.sturzapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -69,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent;
 
                     if (ausgewaehlterRadioButtonText.equals("Risikopatient")) {
-                        intent = new Intent(MainActivity.this, risikopatient_erstellen.class);
+                        intent = new Intent(MainActivity.this, Risikopatient_Erstellen.class);
                     } else if (ausgewaehlterRadioButtonText.equals("Notfallkontakt")) {
-                        intent = new Intent(MainActivity.this, notfallkontakt_erstellen.class);
+                        intent = new Intent(MainActivity.this, Notfallkontakt_Erstellen.class);
                     } else {
                         intent = new Intent(MainActivity.this, DefaultActivity.class);
 

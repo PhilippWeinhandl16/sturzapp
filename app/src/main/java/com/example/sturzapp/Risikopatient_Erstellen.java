@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class risikopatient_erstellen extends AppCompatActivity {
+public class Risikopatient_Erstellen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class risikopatient_erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(risikopatient_erstellen.this, MainActivity.class);
+                Intent intent = new Intent(Risikopatient_Erstellen.this, MainActivity.class);
 
                 startActivity(intent);
 
@@ -37,7 +37,7 @@ public class risikopatient_erstellen extends AppCompatActivity {
 
                 String e_mail = editTextEmail.getText().toString();
 
-                Intent intent2 = new Intent(risikopatient_erstellen.this, risikopatient_startseite.class);
+                Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
                 intent2.putExtra("e_mail", e_mail);
 
                 startActivity(intent2);

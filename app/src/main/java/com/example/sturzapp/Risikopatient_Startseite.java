@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 
 
-public class risikopatient_startseite extends AppCompatActivity {
+public class Risikopatient_Startseite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

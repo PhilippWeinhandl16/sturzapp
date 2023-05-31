@@ -1,13 +1,12 @@
 package com.example.sturzapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.sturzapp.R;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class notfallkontakt_startseite extends AppCompatActivity {
+public class Notfallkontakt_Startseite extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
