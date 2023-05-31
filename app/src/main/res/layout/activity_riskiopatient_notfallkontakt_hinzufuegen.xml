@@ -1,9 +1,64 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.risikopatient_gui.Riskiopatient_Notfallkontakt_Hinzufuegen">
+    android:orientation="vertical"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notfallkontakt zu Risikopatient hinzufügen"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-Mail-Adresse"
+        android:inputType="textEmailAddress"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextVorname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vorname"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editTextNachname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nachname"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/EditText_Strasse_und_Hausnummer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Straße und Hausnummer"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/editPostleitzahl_und_Ort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PLZ und Ort"
+        android:inputType="number"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/Button_Notfallkontakt_Hinzufuegen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTextEmergencyContactEmail"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/white"
+        android:text="Notfallkontakt Hinzufügen"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>
