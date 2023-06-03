@@ -1,4 +1,10 @@
 package com.example.sturzapp.database;
+import androidx.room.Database;
+import androidx.room.Entity;
+import androidx.room.RoomDatabase;
 
-public class Database_Sturzapp {
+@Database(entities = {Account_Entity.class}, version = 1)
+public abstract class Database_Sturzapp extends RoomDatabase {
+    public abstract DAO_Sturzapp Dao();
 }
+
