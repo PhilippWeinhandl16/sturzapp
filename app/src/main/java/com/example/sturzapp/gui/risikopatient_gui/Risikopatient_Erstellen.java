@@ -36,12 +36,32 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                EditText editTextEmail = findViewById(R.id.editTextEmail);
+                //Daten für den Risikopatienten
+                EditText editTextRP_Email = findViewById(R.id.editTextEmail);
+                EditText editTextRP_Passwort = findViewById(R.id.editTextRP_Passwort);
+                EditText editTextRP_Vorname = findViewById(R.id.editTextVorname);
+                EditText editTextRP_Nachname = findViewById(R.id.editTextNachname);
+                EditText editTextRP_Adresse = findViewById(R.id.editTextAddress);
+                EditText editTextRP_PLZ = findViewById(R.id.editTextRP_PLZ);
 
-                String e_mail = editTextEmail.getText().toString();
+                //Daten für den Notfallkontakt des Risikopatienten
+                //1. Vor- und Nachname, 2. Straße und Hausnummer, 3. PLZ und Ort, 4. E-Mail Adresse
+                EditText editTextNFK_Name = findViewById(R.id.editTextNFK_Name);
+                EditText editTextNFK_Adresse = findViewById(R.id.editTextNFK_Adresse);
+                EditText editTextNFK_PLZ = findViewById(R.id.editTextNFK_PLZ);
+                EditText editTextNFK_Email = findViewById(R.id.editTextNFK_Email);
+
+
+                //Eingaben der Daten für Risikopatienten speichern
+                String rp_e_mail = editTextRP_Email.getText().toString();
+                String rp_passwort = editTextRP_Passwort.getText().toString();
+                String rp_vorname = editTextRP_Vorname.getText().toString();
+                String rp_nachname = editTextRP_Nachname.getText().toString();
+                String rp_adresse = editTextRP_Adresse.getText().toString();
+                String rp_plz = editTextRP_PLZ.getText().toString();
 
                 Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
-                intent2.putExtra("e_mail", e_mail);
+                intent2.putExtra("e_mail", rp_e_mail);
 
                 startActivity(intent2);
 

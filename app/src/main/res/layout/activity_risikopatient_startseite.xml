@@ -41,14 +41,24 @@
         android:layout_centerHorizontal="true"
         android:text="Daten ändern" />
 
+    <TextView
+        android:id="@+id/textView_zugehoeriger_notfallkontakt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonDatenAendern"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Hier sehen Sie Ihren zugehörigen Notfallkontakt"
+        android:textSize="18sp" />
+
     <Button
         android:id="@+id/buttonNotfallkontakt_Hinzufuegen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonDatenAendern"
+        android:layout_below="@id/textView_zugehoeriger_notfallkontakt"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="Notfallkontakt hinzufügen" />
+        android:text="Notfallkontakt hinzufügen oder ändern " />
 
 </RelativeLayout>
 

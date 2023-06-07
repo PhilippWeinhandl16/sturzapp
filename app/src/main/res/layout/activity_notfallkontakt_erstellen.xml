@@ -11,7 +11,7 @@
         android:id="@+id/textView_notfallkontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier erstellen Sie einen 'Notfallkontakt' Accountant"
+        android:text="Hier erstellen Sie einen 'Notfallkontakt"
         android:textSize="18sp"
         android:textStyle="normal" />
 
@@ -85,7 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/divider"
         android:layout_marginTop="16dp"
-        android:text="Bitte geben Sie jetzt Daten zu Ihren Risikopatienten an"
+        android:text="Bitte geben Sie jetzt Daten zu Ihrem Risikopatienten an"
         android:textSize="18sp"
         android:textStyle="normal" />
 
