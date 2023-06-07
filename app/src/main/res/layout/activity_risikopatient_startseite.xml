@@ -52,13 +52,13 @@
         android:textSize="18sp" />
 
     <Button
-        android:id="@+id/buttonNotfallkontakt_Hinzufuegen"
+        android:id="@+id/buttonNotfallkontakt_aendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_zugehoeriger_notfallkontakt"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
-        android:text="Notfallkontakt hinzufügen oder ändern " />
+        android:text="Ihren Notfallkontakt ändern" />
 
 </RelativeLayout>
 
