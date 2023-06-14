@@ -10,7 +10,7 @@
         android:id="@+id/textView_willkommenstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Willkommen in der weltbesten SturzApp!"
+        android:text="Willkommen in der Sturzmart App!"
         android:textSize="24sp"
         android:textStyle="bold" />
 
