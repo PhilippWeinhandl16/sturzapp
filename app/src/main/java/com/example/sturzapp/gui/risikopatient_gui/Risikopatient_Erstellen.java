@@ -46,48 +46,49 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
             }
         });
 
-        Button button2 = findViewById(R.id.buttonCreateAccount);
 
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+            Button button2 = findViewById(R.id.buttonCreateAccount);
+
+            button2.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
 
-                //Eingaben der Daten für Risikopatienten speichern
-                String rp_e_mail = editTextRP_Email.getText().toString();
-                String rp_passwort = editTextRP_Passwort.getText().toString();
-                String rp_vorname = editTextRP_Vorname.getText().toString();
-                String rp_nachname = editTextRP_Nachname.getText().toString();
-                String rp_adresse = editTextRP_Adresse.getText().toString();
-                String rp_plz = editTextRP_PLZ.getText().toString();
+                    //Eingaben der Daten für Risikopatienten speichern
+                    String rp_e_mail = editTextRP_Email.getText().toString();
+                    String rp_passwort = editTextRP_Passwort.getText().toString();
+                    String rp_vorname = editTextRP_Vorname.getText().toString();
+                    String rp_nachname = editTextRP_Nachname.getText().toString();
+                    String rp_adresse = editTextRP_Adresse.getText().toString();
+                    String rp_plz = editTextRP_PLZ.getText().toString();
 
-                //Eingaben der Daten für Notfallkontakt speichern
-                String nfk_name = editTextNFK_Name.getText().toString();
-                String nfk_adresse = editTextNFK_Adresse.getText().toString();
-                String nfk_plz = editTextNFK_PLZ.getText().toString();
-                String nfk_email = editTextNFK_Email.getText().toString();
+                    //Eingaben der Daten für Notfallkontakt speichern
+                    String nfk_name = editTextNFK_Name.getText().toString();
+                    String nfk_adresse = editTextNFK_Adresse.getText().toString();
+                    String nfk_plz = editTextNFK_PLZ.getText().toString();
+                    String nfk_email = editTextNFK_Email.getText().toString();
 
-                Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
+                    Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
 
-                //Risikopatient Daten in Intent speichern
-                intent2.putExtra("rp_e_mail", rp_e_mail);
-                intent2.putExtra("rp_passwort", rp_passwort);
-                intent2.putExtra("rp_vorname", rp_vorname);
-                intent2.putExtra("rp_nachname", rp_nachname);
-                intent2.putExtra("rp_adresse", rp_adresse);
-                intent2.putExtra("rp_plz", rp_plz);
+                    //Risikopatient Daten in Intent speichern
+                    intent2.putExtra("rp_e_mail", rp_e_mail);
+                    intent2.putExtra("rp_passwort", rp_passwort);
+                    intent2.putExtra("rp_vorname", rp_vorname);
+                    intent2.putExtra("rp_nachname", rp_nachname);
+                    intent2.putExtra("rp_adresse", rp_adresse);
+                    intent2.putExtra("rp_plz", rp_plz);
 
-                //Notfallkontaktdaten zu Risikopatient in Intent speichern
-                intent2.putExtra("nfk_name", nfk_name);
-                intent2.putExtra("nfk_adresse", nfk_adresse);
-                intent2.putExtra("nfk_plz", nfk_plz);
-                intent2.putExtra("nfk_email", nfk_email);
+                    //Notfallkontaktdaten zu Risikopatient in Intent speichern
+                    intent2.putExtra("nfk_name", nfk_name);
+                    intent2.putExtra("nfk_adresse", nfk_adresse);
+                    intent2.putExtra("nfk_plz", nfk_plz);
+                    intent2.putExtra("nfk_email", nfk_email);
 
-                startActivity(intent2);
+                    startActivity(intent2);
 
-            }
-        });
-
+                }
+            });
 
     }
+
 }

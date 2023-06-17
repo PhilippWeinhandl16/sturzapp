@@ -1,9 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".gui.notfallkontakt_gui.Notfallkontakt_Daten_Aendern">
+    android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hier können Sie als Notfallkontakt ihre Daten ändern"
+        android:textSize="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_Email_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email-Adresse"
+        android:inputType="textEmailAddress"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_Passwort_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email-Adresse"
+        android:inputType="textEmailAddress"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_Vorname_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vorname"
+        android:inputType="textPersonName"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_Nachname_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nachname"
+        android:inputType="textPersonName"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_Adresse_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Straße und Hausnummer"
+        android:inputType="textPostalAddress"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextNFK_PLZ_neu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="PLZ und Ort"
+        android:inputType="textPostalAddress"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/Button_Notfallkontakt_Daten_Updaten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/white"
+        android:text="Notfallkontakt Daten ändern"
+        android:textColor="@color/white"
+        android:layout_gravity="center_horizontal" />
+
+
+</LinearLayout>

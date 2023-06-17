@@ -36,6 +36,11 @@ public class Notfallkontakt_Erstellen extends AppCompatActivity {
             public void onClick(View view) {
 
                 EditText editTextEmail = findViewById(R.id.editTextEmail);
+                EditText editTextPasswort = findViewById(R.id.editTextNFK_Passwort_neu);
+                EditText editTextVorname = findViewById(R.id.editTextNFK_Vorname_neu);
+                EditText editTextNachname = findViewById(R.id.editTextNFK_Nachname_neu);
+                EditText editTextAdresse = findViewById(R.id.editTextNFK_Adresse_neu);
+                EditText editTextPLZ = findViewById(R.id.editTextNFK_PLZ_neu);
 
                 String e_mail = editTextEmail.getText().toString();
 
