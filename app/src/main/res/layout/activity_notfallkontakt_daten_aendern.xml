@@ -28,7 +28,7 @@
         android:id="@+id/editTextNFK_Passwort_neu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email-Adresse"
+        android:hint="Passwort"
         android:inputType="textPassword"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"

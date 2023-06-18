@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/textViewNFK_zugehoeriger_risikopatient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hier sehen Sie die Daten von ihrem zugehörigen Risikopatienten"
+        android:textSize="32dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <TextView
+        android:id="@+id/textViewNFK_zugehoeriger_risikopatient_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Vor- und Nachname"
+        android:textSize="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textViewNFK_zugehoeriger_risikopatient_adresse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Straße und Hausnummer"
+        android:textSize="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textViewNFK_zugehoeriger_risikopatient_plz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PLZ und Ort"
+        android:textSize="20dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/textViewNFK_zugehoeriger_risikopatient_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="E-Mail-Adresse"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>

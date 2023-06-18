@@ -28,6 +28,12 @@ public class Notfallkontakt_Startseite extends AppCompatActivity {
         String nfk_adresse = intent.getStringExtra("nfk_Adresse");
         String nfk_plz = intent.getStringExtra("nfk_plz");
 
+        String rp_name = intent.getStringExtra("rp_name");
+        String rp_adresse = intent.getStringExtra("rp_adresse");
+        String rp_plz = intent.getStringExtra("rp_plz");
+        String rp_email = intent.getStringExtra("rp_email");
+
+
         //Text View und EditText Objekte erzeugen
         TextView textViewEmail = findViewById(R.id.textViewEmail);
 
@@ -52,6 +58,22 @@ public class Notfallkontakt_Startseite extends AppCompatActivity {
                 intent2.putExtra("nfk_plz_alt", nfk_plz);
 
                 startActivity(intent2);
+            }
+        });
+
+        Button button1 = findViewById(R.id.buttonRisikopatientAnzeigen);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent3 = new Intent(Notfallkontakt_Startseite.this, Notfallkontakt_RP_Daten_Anzeigen.class);
+
+                intent3.putExtra("zugehoeriger_RP_name", rp_name);
+                intent3.putExtra("zugehoeriger_RP_adresse", rp_adresse);
+                intent3.putExtra("zugehoeriger_RP_plz", rp_plz);
+                intent3.putExtra("zugehoeriger_RP_email", rp_email);
+
+                startActivity(intent3);
             }
         });
 
