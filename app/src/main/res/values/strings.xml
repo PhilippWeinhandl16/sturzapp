@@ -8,5 +8,6 @@
     <string name="welcome">"Welcome !"</string>
     <string name="email_adresse">Email-Adresse</string>
     <string name="nachname">Nachname</string>
+    <string name="app_logo">App Logo</string>
 
 </resources>

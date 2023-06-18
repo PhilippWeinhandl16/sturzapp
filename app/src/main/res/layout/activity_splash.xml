@@ -5,14 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <ImageView
-        android:id="@+id/myImageView"
-        android:layout_width="450dp"
-        android:layout_height="450dp"
-        android:src="@drawable/sturzmart_logo"
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/sturzmart_logo"
         android:layout_centerInParent="true"
-         />
-
-
+        android:contentDescription="@string/app_logo"/>
 </RelativeLayout>

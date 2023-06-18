@@ -10,7 +10,7 @@ import com.example.sturzapp.MainActivity;
 import com.example.sturzapp.R;
 
 public class Splash_Activity extends AppCompatActivity {
-    private static final int SPLASH_TIMEOUT = 3000; // Zeit in Millisekunden, bis zum Wechsel zur Hauptaktivität
+    private static final int SPLASH_TIMEOUT = 500000; // Zeit in Millisekunden, bis zum Wechsel zur Hauptaktivität
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
