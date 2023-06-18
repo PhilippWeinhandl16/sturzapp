@@ -35,17 +35,28 @@ public class Notfallkontakt_Erstellen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                EditText editTextEmail = findViewById(R.id.editTextEmail);
-                EditText editTextPasswort = findViewById(R.id.editTextNFK_Passwort_neu);
-                EditText editTextVorname = findViewById(R.id.editTextNFK_Vorname_neu);
-                EditText editTextNachname = findViewById(R.id.editTextNFK_Nachname_neu);
-                EditText editTextAdresse = findViewById(R.id.editTextNFK_Adresse_neu);
-                EditText editTextPLZ = findViewById(R.id.editTextNFK_PLZ_neu);
+                EditText editTextEmail = findViewById(R.id.editTextNFK_Email);
+                EditText editTextPasswort = findViewById(R.id.editTextNFK_Passwort);
+                EditText editTextVorname = findViewById(R.id.editTextNFK_Vorname);
+                EditText editTextNachname = findViewById(R.id.editTextNFK_Nachname);
+                EditText editTextAdresse = findViewById(R.id.editTextNFK_Adresse);
+                EditText editTextPLZ = findViewById(R.id.editTextNFK_PLZ);
 
-                String e_mail = editTextEmail.getText().toString();
+                String nfk_email = editTextEmail.getText().toString();
+                String nfk_passwort = editTextPasswort.getText().toString();
+                String nfk_vorname = editTextVorname.getText().toString();
+                String nfk_nachname = editTextNachname.getText().toString();
+                String nfk_adresse = editTextAdresse.getText().toString();
+                String nfk_plz = editTextPLZ.getText().toString();
 
+                //Eingabe im Intent abspeichern
                 Intent intent2 = new Intent(Notfallkontakt_Erstellen.this, Notfallkontakt_Startseite.class);
-                intent2.putExtra("e_mail", e_mail);
+                intent2.putExtra("nfk_e_mail", nfk_email);
+                intent2.putExtra("nfk_Passwort", nfk_passwort);
+                intent2.putExtra("nfk_Vorname", nfk_vorname);
+                intent2.putExtra("nfk_Nachname", nfk_nachname);
+                intent2.putExtra("nfk_Adresse", nfk_adresse);
+                intent2.putExtra("nfk_plz", nfk_plz);
 
                 startActivity(intent2);
 

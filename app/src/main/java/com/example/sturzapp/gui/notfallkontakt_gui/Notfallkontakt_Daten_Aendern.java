@@ -25,7 +25,20 @@ public class Notfallkontakt_Daten_Aendern extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        //Daten für Notfallkontakt aus Intent abrufen
+        String nfk_e_mail = intent.getStringExtra("nfk_Email_alt");
+        String nfk_passwort = intent.getStringExtra("nfk_passwort_alt");
+        String nfk_vorname = intent.getStringExtra("nfk_vorname_alt");
+        String nfk_nachname = intent.getStringExtra("nfk_nachname_alt");
+        String nfk_adresse = intent.getStringExtra("nfk_adresse_alt");
+        String nfk_plz = intent.getStringExtra("nfk_plz_alt");
 
+        editTextEmail.setText(nfk_e_mail);
+        editTextPasswort.setText(nfk_passwort);
+        editTextVorname.setText(nfk_vorname);
+        editTextNachname.setText(nfk_nachname);
+        editTextAdresse.setText(nfk_adresse);
+        editTextPLZ.setText(nfk_plz);
 
     }
 
