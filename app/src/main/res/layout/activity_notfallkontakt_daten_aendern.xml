@@ -35,7 +35,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/editTextNFK_Vorname_neu"
+        android:id="@+id/editTextNFK_firstName_neu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Vorname"
@@ -45,7 +45,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/editTextNFK_Nachname_neu"
+        android:id="@+id/editTextNFK_lastName_neu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/nachname"
@@ -55,7 +55,7 @@
         android:layout_marginTop="20dp"/>
 
     <EditText
-        android:id="@+id/editTextNFK_Adresse_neu"
+        android:id="@+id/editTextNFK_address_new"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Straße und Hausnummer"

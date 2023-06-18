@@ -20,9 +20,9 @@ public class Notfallkontakt_Daten_Aendern extends AppCompatActivity {
         //Variablen für EditText Objekte erzeugen
         EditText editTextEmail = findViewById(R.id.editTextNFK_Email_neu);
         EditText editTextPasswort = findViewById(R.id.editTextNFK_Passwort_neu);
-        EditText editTextVorname = findViewById(R.id.editTextNFK_Vorname_neu);
-        EditText editTextNachname = findViewById(R.id.editTextNFK_Nachname_neu);
-        EditText editTextAdresse = findViewById(R.id.editTextNFK_Adresse_neu);
+        EditText editTextfirstName = findViewById(R.id.editTextNFK_firstName_neu);
+        EditText editTextlastName = findViewById(R.id.editTextNFK_lastName_neu);
+        EditText editTextaddress = findViewById(R.id.editTextNFK_address_new);
         EditText editTextPLZ = findViewById(R.id.editTextNFK_PLZ_neu);
 
         Intent intent = getIntent();
@@ -30,23 +30,23 @@ public class Notfallkontakt_Daten_Aendern extends AppCompatActivity {
         //Daten für Notfallkontakt aus Intent abrufen
         String nfk_e_mail = intent.getStringExtra("nfk_Email_alt");
         String nfk_passwort = intent.getStringExtra("nfk_passwort_alt");
-        String nfk_vorname = intent.getStringExtra("nfk_vorname_alt");
-        String nfk_nachname = intent.getStringExtra("nfk_nachname_alt");
-        String nfk_adresse = intent.getStringExtra("nfk_adresse_alt");
+        String nfk_firstName = intent.getStringExtra("nfk_firstName_alt");
+        String nfk_lastName = intent.getStringExtra("nfk_lastName_alt");
+        String nfk_address = intent.getStringExtra("nfk_address_alt");
         String nfk_plz = intent.getStringExtra("nfk_plz_alt");
 
         editTextEmail.setText(nfk_e_mail);
         editTextPasswort.setText(nfk_passwort);
-        editTextVorname.setText(nfk_vorname);
-        editTextNachname.setText(nfk_nachname);
-        editTextAdresse.setText(nfk_adresse);
+        editTextfirstName.setText(nfk_firstName);
+        editTextlastName.setText(nfk_lastName);
+        editTextaddress.setText(nfk_address);
         editTextPLZ.setText(nfk_plz);
 
         String nfk_email_neu = editTextEmail.getText().toString();
         String nfk_passwort_neu = editTextPasswort.getText().toString();
-        String nfk_vorname_neu = editTextVorname.getText().toString();
-        String nfk_nachname_neu = editTextNachname.getText().toString();
-        String nfk_adresse_neu = editTextAdresse.getText().toString();
+        String nfk_firstName_neu = editTextfirstName.getText().toString();
+        String nfk_lastName_neu = editTextlastName.getText().toString();
+        String nfk_address_new = editTextaddress.getText().toString();
         String nfk_plz_neu = editTextPLZ.getText().toString();
 
 
@@ -60,9 +60,9 @@ public class Notfallkontakt_Daten_Aendern extends AppCompatActivity {
                 Intent intent2 = new Intent(Notfallkontakt_Daten_Aendern.this, Notfallkontakt_Startseite.class);
                 intent2.putExtra("nfk_email_aktualisiert", nfk_email_neu);
                 intent2.putExtra("nfk_passwort_aktualisiert", nfk_passwort_neu);
-                intent2.putExtra("nfk_vorname_aktualisiert", nfk_vorname_neu);
-                intent2.putExtra("nfk_nachname_aktualisiert", nfk_nachname_neu);
-                intent2.putExtra("nfk_adresse_aktualisiert", nfk_adresse_neu);
+                intent2.putExtra("nfk_firstName_aktualisiert", nfk_firstName_neu);
+                intent2.putExtra("nfk_lastName_aktualisiert", nfk_lastName_neu);
+                intent2.putExtra("nfk_address_aktualisiert", nfk_address_new);
                 intent2.putExtra("nfk_plz_aktualisiert", nfk_plz_neu);
 
                 startActivity(intent2);

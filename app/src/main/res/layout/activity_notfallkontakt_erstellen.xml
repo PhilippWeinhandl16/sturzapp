@@ -11,9 +11,9 @@
         android:id="@+id/textView_notfallkontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier erstellen Sie einen 'Notfallkontakt"
-        android:textSize="18sp"
-        android:textStyle="normal" />
+        android:text="Hier erstellen Sie einen Notfallkontakt"
+        android:textSize="32dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextNFK_Email"
@@ -36,7 +36,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextNFK_Vorname"
+        android:id="@+id/editTextNFK_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNFK_Passwort"
@@ -45,19 +45,19 @@
         android:hint="Vorname" />
 
     <EditText
-        android:id="@+id/editTextNFK_Nachname"
+        android:id="@+id/editTextNFK_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Vorname"
+        android:layout_below="@id/editTextNFK_firstName"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Nachname" />
 
     <EditText
-        android:id="@+id/editTextNFK_Adresse"
+        android:id="@+id/editTextNFK_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Nachname"
+        android:layout_below="@id/editTextNFK_lastName"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Straße und Hausnummer" />
@@ -66,7 +66,7 @@
         android:id="@+id/editTextNFK_PLZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Adresse"
+        android:layout_below="@id/editTextNFK_address"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="PLZ und Ort" />
@@ -99,7 +99,7 @@
         android:hint="Vor- und Nachname" />
 
     <EditText
-        android:id="@+id/editTextRP_Adresse"
+        android:id="@+id/editTextRP_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextRP_Name"
@@ -111,7 +111,7 @@
         android:id="@+id/editTextRP_PLZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_Adresse"
+        android:layout_below="@id/editTextRP_address"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="PLZ und Ort" />

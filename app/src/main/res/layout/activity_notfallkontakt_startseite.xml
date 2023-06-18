@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Ihre Auswahl: Notfallkontakt"
-        android:textSize="18sp" />
+        android:textSize="18dp"
+        android:gravity="center"/>
 
     <TextView
         android:id="@+id/textViewAngemeldet"
@@ -20,7 +21,7 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:text="Sie sind angemeldet als: "
-        android:textSize="18sp" />
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/textViewEmail"
@@ -30,13 +31,22 @@
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
         android:text=""
-        android:textSize="18sp" />
+        android:textSize="18dp" />
+
+    <Button
+        android:id="@+id/buttonDatenAnzeigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewEmail"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Daten anzeigen" />
 
     <Button
         android:id="@+id/buttonDatenAendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEmail"
+        android:layout_below="@id/buttonDatenAnzeigen"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:text="Daten ändern" />

@@ -20,7 +20,7 @@ public class Risikopatient_Notfallkontakt_Aendern extends AppCompatActivity {
         Intent intent = getIntent();
 
         intent.getStringExtra("nfk_name");
-        intent.getStringExtra("nfk_adresse");
+        intent.getStringExtra("nfk_address");
         intent.getStringExtra("nfk_plz");
         intent.getStringExtra("nfk_email");
 
@@ -33,7 +33,7 @@ public class Risikopatient_Notfallkontakt_Aendern extends AppCompatActivity {
         //EditText - Notfallkontakt Daten anzeigen lassen
 
         editTextName.setText("nfk_name");
-        editText_Strasse_und_Hausnummer.setText("nfk_adresse");
+        editText_Strasse_und_Hausnummer.setText("nfk_address");
         editTextPostleitzahl_und_Ort.setText("nfk_plz");
         editTextEmail.setText("nfk_email");
 

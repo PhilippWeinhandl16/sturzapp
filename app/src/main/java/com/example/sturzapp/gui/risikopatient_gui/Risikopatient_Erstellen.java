@@ -22,15 +22,15 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
         //Daten für den Risikopatienten
         EditText editTextRP_Email = findViewById(R.id.editText_RP_Email);
         EditText editTextRP_Passwort = findViewById(R.id.editTextRP_Passwort);
-        EditText editTextRP_Vorname = findViewById(R.id.editTextRP_Vorname);
-        EditText editTextRP_Nachname = findViewById(R.id.editTextRP_Nachname);
-        EditText editTextRP_Adresse = findViewById(R.id.editTextRP_Address);
+        EditText editTextRP_firstName = findViewById(R.id.editTextRP_firstName);
+        EditText editTextRP_lastName = findViewById(R.id.editTextRP_lastName);
+        EditText editTextRP_address = findViewById(R.id.editTextRP_address);
         EditText editTextRP_PLZ = findViewById(R.id.editTextRP_PLZ);
 
         //Daten für den Notfallkontakt des Risikopatienten
         //1. Vor- und Nachname, 2. Straße und Hausnummer, 3. PLZ und Ort, 4. E-Mail Adresse
         EditText editTextNFK_Name = findViewById(R.id.editTextNFK_Name);
-        EditText editTextNFK_Adresse = findViewById(R.id.editTextNFK_Adresse);
+        EditText editTextNFK_address = findViewById(R.id.editTextNFK_address);
         EditText editTextNFK_PLZ = findViewById(R.id.editTextNFK_PLZ);
         EditText editTextNFK_Email = findViewById(R.id.editTextNFK_Email);
 
@@ -57,14 +57,14 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
                     //Eingaben der Daten für Risikopatienten speichern
                     String rp_e_mail = editTextRP_Email.getText().toString();
                     String rp_passwort = editTextRP_Passwort.getText().toString();
-                    String rp_vorname = editTextRP_Vorname.getText().toString();
-                    String rp_nachname = editTextRP_Nachname.getText().toString();
-                    String rp_adresse = editTextRP_Adresse.getText().toString();
+                    String rp_firstName = editTextRP_firstName.getText().toString();
+                    String rp_lastName = editTextRP_lastName.getText().toString();
+                    String rp_address = editTextRP_address.getText().toString();
                     String rp_plz = editTextRP_PLZ.getText().toString();
 
                     //Eingaben der Daten für Notfallkontakt speichern
                     String nfk_name = editTextNFK_Name.getText().toString();
-                    String nfk_adresse = editTextNFK_Adresse.getText().toString();
+                    String nfk_address = editTextNFK_address.getText().toString();
                     String nfk_plz = editTextNFK_PLZ.getText().toString();
                     String nfk_email = editTextNFK_Email.getText().toString();
 
@@ -73,14 +73,14 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
                     //Risikopatient Daten in Intent speichern
                     intent2.putExtra("rp_e_mail", rp_e_mail);
                     intent2.putExtra("rp_passwort", rp_passwort);
-                    intent2.putExtra("rp_vorname", rp_vorname);
-                    intent2.putExtra("rp_nachname", rp_nachname);
-                    intent2.putExtra("rp_adresse", rp_adresse);
+                    intent2.putExtra("rp_firstName", rp_firstName);
+                    intent2.putExtra("rp_lastName", rp_lastName);
+                    intent2.putExtra("rp_address", rp_address);
                     intent2.putExtra("rp_plz", rp_plz);
 
                     //Notfallkontaktdaten zu Risikopatient in Intent speichern
                     intent2.putExtra("nfk_name", nfk_name);
-                    intent2.putExtra("nfk_adresse", nfk_adresse);
+                    intent2.putExtra("nfk_address", nfk_address);
                     intent2.putExtra("nfk_plz", nfk_plz);
                     intent2.putExtra("nfk_email", nfk_email);
 

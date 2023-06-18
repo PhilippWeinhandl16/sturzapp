@@ -36,7 +36,7 @@
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextRP_Vorname"
+        android:id="@+id/editTextRP_firstName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextRP_Passwort"
@@ -45,19 +45,19 @@
         android:hint="Vorname" />
 
     <EditText
-        android:id="@+id/editTextRP_Nachname"
+        android:id="@+id/editTextRP_lastName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_Vorname"
+        android:layout_below="@id/editTextRP_firstName"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Nachname" />
 
     <EditText
-        android:id="@+id/editTextRP_Address"
+        android:id="@+id/editTextRP_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_Nachname"
+        android:layout_below="@id/editTextRP_lastName"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Straße und Hausnummer" />
@@ -66,7 +66,7 @@
         android:id="@+id/editTextRP_PLZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_Address"
+        android:layout_below="@id/editTextRP_address"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="PLZ und Ort" />
@@ -92,7 +92,7 @@
         android:hint="Vor- und Nachname" />
 
     <EditText
-        android:id="@+id/editTextNFK_Adresse"
+        android:id="@+id/editTextNFK_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextNFK_Name"
@@ -104,7 +104,7 @@
         android:id="@+id/editTextNFK_PLZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Adresse"
+        android:layout_below="@id/editTextNFK_address"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="PLZ und Ort" />

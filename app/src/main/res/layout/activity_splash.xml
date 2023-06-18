@@ -9,7 +9,7 @@
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/sturzmart_logo"
         android:layout_centerInParent="true"
-        android:contentDescription="@string/app_logo"/>
+        android:contentDescription="@string/app_logo"
+        app:srcCompat="@drawable/sturzmart_logo" />
 </RelativeLayout>

@@ -13,6 +13,7 @@ public class Account_Entity {
     private String firstName;
     private String lastName;
     private String address;
+
     private String zipCity;
 
     private String notfallkontaktName;
