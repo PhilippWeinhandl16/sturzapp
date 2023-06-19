@@ -10,13 +10,18 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.sturzapp.R;
+import com.google.android.material.tabs.TabLayout;
 
 public class Notfallkontakt_Startseite extends AppCompatActivity {
+
+
+    TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notfallkontakt_startseite);
+
 
         Intent intent = getIntent();
 
@@ -97,4 +102,5 @@ public class Notfallkontakt_Startseite extends AppCompatActivity {
             }
         });
     }
+
 }

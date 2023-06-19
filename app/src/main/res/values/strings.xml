@@ -9,5 +9,8 @@
     <string name="email_adresse">Email-Adresse</string>
     <string name="nachname">Nachname</string>
     <string name="app_logo">App Logo</string>
+    <string name="title_activity_notfallkontakt_startseite">NotfallkontaktStartseite</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 
 </resources>
