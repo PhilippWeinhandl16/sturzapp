@@ -4,18 +4,18 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
+import java.util.List;
 
 import java.util.List;
 
 @Dao
-public interface DAO_Sturzapp {
+public interface DaoSturzapp {
     @Insert
-    void insertAccount(Account_Entity account);
+    void insertAccount(AccountEntity account);
 
     @Delete
-    void deleteAccount(Account_Entity account);
+    void deleteAccount(AccountEntity account);
 
     @Query("SELECT * FROM accounts")
-    List<Account_Entity> getAllAccounts();
+    List<AccountEntity> getAllAccounts();
 }
-

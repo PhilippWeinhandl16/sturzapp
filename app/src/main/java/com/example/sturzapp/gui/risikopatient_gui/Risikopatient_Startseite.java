@@ -16,14 +16,18 @@ public class Risikopatient_Startseite extends AppCompatActivity {
     Intent intent = getIntent();
 
     //Risikopatientdaten
-    private String emailRP;
-    private String passwordRP;
-    private String firstNameRP;
-    private String lastNameRP;
+    private String rp_e_mail;
+    private String rp_passwort;
+    private String rp_firstName;
+    private String rp_lastName;
+    private String rp_address;
+    private String rp_plz;
 
     //Notfallkontaktdaten
-    private String emailNFK;
-    private String nameNFK;
+    private String nfk_name;
+    private String nfk_address;
+    private String nfk_plz;
+    private String nfk_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,26 +39,25 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             Intent intent = getIntent();
 
             //E-Mail des Risikopatienten in View anzeigen lassen
-            String emailRP = intent.getStringExtra("emailRP");
-            String passwordRP = intent.getStringExtra("passwordRP");
-            String firstNameRP = intent.getStringExtra("firstNameRP");
-            String lastNameRP = intent.getStringExtra("lastNameRP");
-
-            TextView textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-            TextView textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
-            TextView textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
-            TextView textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
-
-        textViewemailRP_display.setText(emailRP);
-        textViewpasswordRP_display.setText(passwordRP);
-        textViewfirstNameRP_display.setText(firstNameRP);
-        textViewlastNameRP_display.setText(lastNameRP);
+            String e_mail = intent.getStringExtra("rp_e_mail");
+            TextView textViewEmail = findViewById(R.id.textViewEmail);
+            textViewEmail.setText(e_mail);
 
 
+        //Risikopatientendaten abspeichern
+        rp_e_mail = intent.getStringExtra("rp_e_mail");
+        rp_passwort = intent.getStringExtra("rp_passwort");
+        rp_firstName = intent.getStringExtra("rp_firstName");
+        rp_lastName = intent.getStringExtra("rp_lastName");
+        rp_address = intent.getStringExtra("rp_adresse");
+        rp_plz = intent.getStringExtra("rp_plz");
 
         //Notfallkontaktdaten abspeichern
-        emailNFK = intent.getStringExtra("emailNFK");
-        nameNFK = intent.getStringExtra("nameNFK");
+        nfk_name = intent.getStringExtra("nfk_name");
+        nfk_address = intent.getStringExtra("nfk_address");
+        nfk_plz = intent.getStringExtra("nfk_plz");
+        nfk_email = intent.getStringExtra("nfk_email");
+
 
 
         //Button um Daten von Notfallkontakt zu ändern
@@ -65,8 +68,10 @@ public class Risikopatient_Startseite extends AppCompatActivity {
 
                 Intent intent2 = new Intent(Risikopatient_Startseite.this, Risikopatient_Notfallkontakt_Aendern.class);
 
-                intent2.putExtra("emailNFK", emailNFK);
-                intent2.putExtra("nameNFK", nameNFK);
+                intent2.putExtra("nfk_name", nfk_name);
+                intent2.putExtra("nfk_address", nfk_address);
+                intent2.putExtra("nfk_plz", nfk_plz);
+                intent2.putExtra("nfk_email", nfk_email);
 
                 startActivity(intent2);
             }
