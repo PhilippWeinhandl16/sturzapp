@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.example.sturzapp.database.Account_Entity;
 import com.example.sturzapp.database.DAO_Sturzapp;
 import com.example.sturzapp.database.Database_Sturzapp;
-import com.example.sturzapp.gui.notfallkontakt_gui.Notfallkontakt_Erstellen;
 import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Erstellen;
 
 import java.util.List;

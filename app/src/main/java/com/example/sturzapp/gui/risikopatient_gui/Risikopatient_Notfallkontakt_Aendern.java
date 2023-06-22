@@ -19,25 +19,34 @@ public class Risikopatient_Notfallkontakt_Aendern extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        intent.getStringExtra("nfk_name");
-        intent.getStringExtra("nfk_address");
-        intent.getStringExtra("nfk_plz");
-        intent.getStringExtra("nfk_email");
+
+        String emailNFK = intent.getStringExtra("emailNFK");
+        String nameNFK = intent.getStringExtra("nameNFK");
 
         //EditText Objekte erzeugen
-        EditText editTextName = findViewById(R.id.editTextName);
-        EditText editTextEmail = findViewById(R.id.editTextEmail);
+        EditText editTextemailNFK = findViewById(R.id.editTextemailNFK_change);
+        EditText editTextnameNFK = findViewById(R.id.editTextnameNFK_change);
 
         //EditText - Notfallkontakt Daten anzeigen lassen
 
-        editTextName.setText("nfk_name");
-        editTextEmail.setText("nfk_email");
+        editTextemailNFK.setText(emailNFK);
+        editTextnameNFK.setText(nameNFK);
 
-        Button button_notfallkontakt_aendern = findViewById(R.id.Button_Notfallkontakt_Hinzufuegen);
+        Button button_notfallkontakt_aendern = findViewById(R.id.Button_NFK_change);
 
         button_notfallkontakt_aendern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Intent intent2 = new Intent(Risikopatient_Notfallkontakt_Aendern.this, Risikopatient_Startseite.class);
+
+                String emailNFK_updatet = editTextemailNFK.getText().toString();
+                String nameNFK_updatet = editTextnameNFK.getText().toString();
+
+                intent2.putExtra("emailNFK_updatet", emailNFK_updatet);
+                intent2.putExtra("nameNFK_updatet", nameNFK_updatet);
+
+                startActivity(intent2);
 
 
 
