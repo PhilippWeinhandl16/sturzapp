@@ -35,9 +35,6 @@
             android:name=".gui.risikopatient_gui.Risikopatient_Notfallkontakt_Aendern"
             android:exported="false" />
         <activity
-            android:name=".gui.notfallkontakt_gui.Notfallkontakt_Daten_Aendern"
-            android:exported="false" />
-        <activity
             android:name=".gui.risikopatient_gui.Risikopatient_Daten_Aendern"
             android:exported="false" />
         <activity
