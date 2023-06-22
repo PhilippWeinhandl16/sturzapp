@@ -16,12 +16,8 @@
 
 
 
-        <activity
-            android:name=".gui.notfallkontakt_gui.Notfallkontakt_RP_Daten_Anzeigen"
-            android:exported="false" />
-        <activity
-            android:name=".gui.notfallkontakt_gui.Notfallkontakt_Daten_Anzeigen"
-            android:exported="false" />
+
+
         <activity
             android:name=".Splash_Activity"
             android:exported="true">
@@ -43,12 +39,7 @@
         <activity
             android:name=".gui.risikopatient_gui.Risikopatient_Erstellen"
             android:exported="false" />
-        <activity
-            android:name=".gui.notfallkontakt_gui.Notfallkontakt_Startseite"
-            android:exported="false" />
-        <activity
-            android:name=".gui.notfallkontakt_gui.Notfallkontakt_Erstellen"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" />
