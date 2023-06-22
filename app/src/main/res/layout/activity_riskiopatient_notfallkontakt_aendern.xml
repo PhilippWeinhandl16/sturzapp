@@ -5,6 +5,7 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/TextViewNFK_aendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Daten von ihrem Notfallkontakt ändern"
@@ -14,35 +15,23 @@
         android:layout_marginBottom="16dp" />
 
     <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Vorname und Nachname"
-        android:layout_marginBottom="16dp" />
-
-
-    <EditText
-        android:id="@+id/EditText_Strasse_und_Hausnummer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Straße und Hausnummer"
-        android:layout_marginBottom="16dp" />
-
-    <EditText
-        android:id="@+id/editPostleitzahl_und_Ort"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="PLZ und Ort"
-        android:inputType="number"
-        android:layout_marginBottom="16dp" />
-
-    <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="E-Mail-Adresse"
         android:inputType="textEmailAddress"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/editTextName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Vorname und Nachname"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="20dp"/>
+
+
 
     <Button
         android:id="@+id/Button_Notfallkontakt_Hinzufuegen"

@@ -17,112 +17,76 @@
         android:textStyle="normal" />
 
     <EditText
-        android:id="@+id/editText_RP_Email"
+        android:id="@+id/editTextemailRP_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/textViewRP"
         android:layout_marginTop="16dp"
         android:background="@color/white"
         android:hint="E-Mail-Adresse" />
 
     <EditText
-        android:id="@+id/editTextRP_Passwort"
+        android:id="@+id/editTextpasswordRP_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editText_RP_Email"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextemailRP_input"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Passwort"
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextRP_firstName"
+        android:id="@+id/editTextfirstNameRP_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_Passwort"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextpasswordRP_input"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Vorname" />
 
     <EditText
-        android:id="@+id/editTextRP_lastName"
+        android:id="@+id/editTextlastNameRP_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_firstName"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextfirstNameRP_input"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Nachname" />
-
-    <EditText
-        android:id="@+id/editTextRP_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_lastName"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="Straße und Hausnummer" />
-
-    <EditText
-        android:id="@+id/editTextRP_PLZ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_address"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="PLZ und Ort" />
-
 
     <TextView
         android:id="@+id/textViewNFK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextRP_PLZ"
-        android:layout_marginTop="16dp"
+        android:layout_below="@id/editTextlastNameRP_input"
+        android:layout_marginTop="30dp"
         android:text="Eingabe des Notfallkontakts"
         android:textSize="26dp"
         android:textStyle="normal" />
 
+
     <EditText
-        android:id="@+id/editTextNFK_Name"
+        android:id="@+id/editTextemailNFK_input"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/textViewNFK"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/white"
+        android:hint="E-Mail-Adresse" />
+
+    <EditText
+        android:id="@+id/editTextnameNFK_input"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextemailNFK_input"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Vor- und Nachname" />
-
-    <EditText
-        android:id="@+id/editTextNFK_address"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Name"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="Straße und Hausnummer" />
-
-    <EditText
-        android:id="@+id/editTextNFK_PLZ"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_address"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="PLZ und Ort" />
-
-    <EditText
-        android:id="@+id/editTextNFK_Email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_PLZ"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="E-Mail-Adresse" />
 
     <Button
         android:id="@+id/buttonCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextNFK_Email"
+        android:layout_below="@id/editTextnameNFK_input"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:text="Account erstellen"

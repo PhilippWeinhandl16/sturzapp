@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Ihre Auswahl: Risikopatient"
-        android:textSize="18sp" />
+        android:textSize="26dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/textViewAngemeldet"
@@ -23,20 +24,51 @@
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/textViewEmail"
+        android:id="@+id/textViewemailRP_display"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textViewAngemeldet"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="E-Mail"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewpasswordRP_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewemailRP_display"
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
-        android:text=""
-        android:textSize="18sp" />
+        android:inputType="textPassword"
+        android:text="Passwort"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewfirstNameRP_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewpasswordRP_display"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Vorname"
+        android:textSize="22dp" />
+
+    <TextView
+        android:id="@+id/textViewlastNameRP_display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewfirstNameRP_display"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true"
+        android:text="Nachname"
+        android:textSize="22dp" />
 
     <Button
         android:id="@+id/buttonDatenAendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEmail"
+        android:layout_below="@id/textViewlastNameRP_display"
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:text="Daten ändern" />
@@ -46,10 +78,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonDatenAendern"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
         android:text="Hier sehen Sie Ihren zugehörigen Notfallkontakt"
-        android:textSize="18sp" />
+        android:textSize="32dp"
+        android:textStyle="bold"/>
 
     <Button
         android:id="@+id/buttonNotfallkontakt_aendern"
