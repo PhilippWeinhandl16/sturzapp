@@ -22,15 +22,15 @@ public class Risikopatient_Daten_Aendern extends AppCompatActivity {
 
         Intent intent1 = getIntent();
 
-        intent1.getStringExtra("");
-        intent1.getStringExtra("");
-        intent1.getStringExtra("");
-        intent1.getStringExtra("");
+        String emailRP = intent1.getStringExtra("emailRP");
+        String passwordRP = intent1.getStringExtra("passwordRP");
+        String firstNameRP = intent1.getStringExtra("firstNameRP");
+        String lastNameRP = intent1.getStringExtra("lastNameRP");
 
-        String emailRP = editTextemailRP_change.getText().toString();
-        String passwordRP = editTextpasswordRP_change.getText().toString();
-        String firstNameRP = editTextfirstNameRP_change.getText().toString();
-        String lastNameRP = editTextlastNameRP_change.getText().toString();
+        editTextemailRP_change.setText(emailRP);
+        editTextpasswordRP_change.setText(passwordRP);
+        editTextfirstNameRP_change.setText(firstNameRP);
+        editTextlastNameRP_change.setText(lastNameRP);
 
     }
 }

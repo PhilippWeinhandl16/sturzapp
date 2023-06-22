@@ -35,10 +35,10 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             Intent intent = getIntent();
 
             //E-Mail des Risikopatienten in View anzeigen lassen
-            String emailRP = intent.getStringExtra("emailRP");
-            String passwordRP = intent.getStringExtra("passwordRP");
-            String firstNameRP = intent.getStringExtra("firstNameRP");
-            String lastNameRP = intent.getStringExtra("lastNameRP");
+             emailRP = intent.getStringExtra("emailRP");
+             passwordRP = intent.getStringExtra("passwordRP");
+             firstNameRP = intent.getStringExtra("firstNameRP");
+             lastNameRP = intent.getStringExtra("lastNameRP");
 
 
             TextView textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
