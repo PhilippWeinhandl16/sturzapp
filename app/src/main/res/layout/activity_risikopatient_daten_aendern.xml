@@ -17,112 +17,48 @@
         android:textStyle="normal" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editTextemailRP_change"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/textViewRiskPatient"
         android:layout_marginTop="16dp"
         android:background="@color/white"
         android:hint="E-Mail-Adresse" />
 
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/editTextpasswordRP_change"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmail"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextemailRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Passwort"
         android:inputType="textPassword" />
 
     <EditText
-        android:id="@+id/editTextFirstName"
+        android:id="@+id/editTextfirstNameRP_change"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextPassword"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextpasswordRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Vorname" />
 
     <EditText
-        android:id="@+id/editTextLastName"
+        android:id="@+id/editTextlastNameRP_change"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextFirstName"
+        android:layout_height="48dp"
+        android:layout_below="@id/editTextfirstNameRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:hint="Nachname" />
 
-    <EditText
-        android:id="@+id/editTextaddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextLastName"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="Straße und Hausnummer" />
-
-    <EditText
-        android:id="@+id/editTextZipCity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextaddress"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="PLZ und Ort" />
-
-
-    <TextView
-        android:id="@+id/textViewEmergencyContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextZipCity"
-        android:layout_marginTop="16dp"
-        android:text="Daten des Notfallkontakts"
-        android:textSize="26dp"
-        android:textStyle="normal" />
-
-    <EditText
-        android:id="@+id/editTextEmergencyContactName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textViewEmergencyContact"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="Vor- und Nachname" />
-
-    <EditText
-        android:id="@+id/editTextEmergencyContactAddress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmergencyContactName"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="Straße und Hausnummer" />
-
-    <EditText
-        android:id="@+id/editTextEmergencyContactZipCity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmergencyContactAddress"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="PLZ und Ort" />
-
-    <EditText
-        android:id="@+id/editTextEmergencyContactEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmergencyContactZipCity"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/white"
-        android:hint="E-Mail-Adresse" />
 
     <Button
         android:id="@+id/buttonCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editTextEmergencyContactEmail"
+        android:layout_below="@id/editTextlastNameRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:text="Daten ändern"

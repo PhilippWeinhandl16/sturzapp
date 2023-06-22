@@ -35,22 +35,44 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             Intent intent = getIntent();
 
             //E-Mail des Risikopatienten in View anzeigen lassen
-            String e_mail = intent.getStringExtra("rp_e_mail");
-            TextView textViewemailRP = findViewById(R.id.textViewemailRP_display);
-            textViewemailRP.setText(e_mail);
+            String emailRP = intent.getStringExtra("emailRP");
+            String passwordRP = intent.getStringExtra("passwordRP");
+            String firstNameRP = intent.getStringExtra("firstNameRP");
+            String lastNameRP = intent.getStringExtra("lastNameRP");
 
 
-        //Risikopatientendaten abspeichern
-        emailRP = intent.getStringExtra("rp_e_mail");
-        passwordRP = intent.getStringExtra("rp_passwort");
-        firstNameRP = intent.getStringExtra("rp_firstName");
-        lastNameRP = intent.getStringExtra("rp_lastName");
+            TextView textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
+            TextView textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
+            TextView textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
+            TextView textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
+
+        textViewemailRP_display.setText(emailRP);
+        textViewpasswordRP_display.setText(passwordRP);
+        textViewfirstNameRP_display.setText(firstNameRP);
+        textViewlastNameRP_display.setText(lastNameRP);
 
         //Notfallkontaktdaten abspeichern
         emailNFK = intent.getStringExtra("emailNFK");
         nameNFK = intent.getStringExtra("nameNFK");
 
 
+        Button button1 = findViewById(R.id.buttonDatenAendern);
+
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent1 = new Intent(Risikopatient_Startseite.this, Risikopatient_Daten_Aendern.class);
+
+                intent1.putExtra("emailRP", emailRP);
+                intent1.putExtra("passwordRP", passwordRP);
+                intent1.putExtra("firstNameRP", firstNameRP);
+                intent1.putExtra("lastNameRP", lastNameRP);
+
+                startActivity(intent1);
+
+            }
+        });
 
         //Button um Daten von Notfallkontakt zu ändern
         Button Button2 = findViewById(R.id.buttonNotfallkontakt_aendern);
