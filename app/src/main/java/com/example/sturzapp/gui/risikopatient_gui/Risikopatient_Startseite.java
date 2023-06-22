@@ -87,6 +87,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
                 intent2.putExtra("rp_plz", rp_plz); */
 
 
+
     }
 
 
