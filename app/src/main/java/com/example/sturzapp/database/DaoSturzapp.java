@@ -18,4 +18,6 @@ public interface DaoSturzapp {
 
     @Query("SELECT * FROM accounts")
     List<AccountEntity> getAllAccounts();
+
+    //hallo
 }
