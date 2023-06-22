@@ -13,17 +13,16 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import com.example.sturzapp.database.Account_Entity;
-import com.example.sturzapp.database.DAO_Sturzapp;
-import com.example.sturzapp.database.Database_Sturzapp;
-import com.example.sturzapp.gui.notfallkontakt_gui.Notfallkontakt_Erstellen;
+import com.example.sturzapp.database.AccountEntity;
+import com.example.sturzapp.database.DaoSturzapp;
+import com.example.sturzapp.database.DatabaseSturzapp;
 import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Erstellen;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private Database_Sturzapp database;
+    private DatabaseSturzapp database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +30,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         // Datenbankverbindung herstellen
-        database = Room.databaseBuilder(getApplicationContext(), Database_Sturzapp.class, "sturzapp-db")
+        database = Room.databaseBuilder(getApplicationContext(), DatabaseSturzapp.class, "sturzapp-db")
                 .build();
 
         // Ein Konto in die Datenbank einfügen
-        Account_Entity account = new Account_Entity("email@example.com", "password", "John", "Doe",
-                "123 Main Street", "City", "Emergency Contact", "Contact Address", "Contact Zip",
-                "contact@example.com");
+        AccountEntity account = new AccountEntity();
         insertAccount(account);
 
         // Alle Konten aus der Datenbank abrufen
@@ -82,21 +79,21 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void insertAccount(Account_Entity account) {
+    private void insertAccount(AccountEntity account) {
         new Thread(() -> {
-            DAO_Sturzapp dao = database.Dao();
+            DaoSturzapp dao = database.daoSturzapp();
             dao.insertAccount(account);
-            Log.d(TAG, "Account inserted: " + account.getEmail());
+            Log.d(TAG, "Account inserted: " + account.getEmailRP());
             runOnUiThread(() -> Toast.makeText(MainActivity.this, "Account inserted", Toast.LENGTH_SHORT).show());
         }).start();
     }
 
     private void getAllAccounts() {
         new Thread(() -> {
-            DAO_Sturzapp dao = database.Dao();
-            List<Account_Entity> accounts = dao.getAllAccounts();
-            for (Account_Entity account : accounts) {
-                Log.d(TAG, "Account: " + account.getEmail());
+            DaoSturzapp dao = database.daoSturzapp();
+            List<AccountEntity> accounts = dao.getAllAccounts();
+            for (AccountEntity account : accounts) {
+                Log.d(TAG, "Account: " + account.getEmailRP());
             }
         }).start();
     }

@@ -40,7 +40,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
 
             //E-Mail des Risikopatienten in View anzeigen lassen
             String e_mail = intent.getStringExtra("rp_e_mail");
-            TextView textViewEmail = findViewById(R.id.textViewEmail);
+            TextView textViewEmail = findViewById(R.id.textViewRiskPatient);
             textViewEmail.setText(e_mail);
 
 
