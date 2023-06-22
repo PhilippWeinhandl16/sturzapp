@@ -16,8 +16,8 @@ public abstract class DatabaseSturzapp extends RoomDatabase {
         if (sturzDBInstance == null) {
             synchronized (DatabaseSturzapp.class) {
                 if (sturzDBInstance == null) {
-                    sturzDBInstance = Room.databaseBuilder(context, DatabaseSturzapp.class, "sturzapp_db")
-                            DatabaseSturzapp.class, )
+                    sturzDBInstance = Room.databaseBuilder(context.getApplicationContext(),
+                                    DatabaseSturzapp.class, "sturzapp_database")
                             .build();
                 }
             }
