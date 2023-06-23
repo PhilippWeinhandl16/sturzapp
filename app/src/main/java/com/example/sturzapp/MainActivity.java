@@ -9,8 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.sturzapp.database.AccountEntity;
@@ -52,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
                 EditText editTextemailRP = findViewById(R.id.editTextemailRP);
                 EditText editTextpasswordRP = findViewById(R.id.editTextpasswordRP);
 
-                String email_adresse = editTextemailRP.getText().toString();
-                String passwort = editTextpasswordRP.getText().toString();
+                String email = editTextemailRP.getText().toString();
+                String password = editTextpasswordRP.getText().toString();
 
                 Intent intent;
 
