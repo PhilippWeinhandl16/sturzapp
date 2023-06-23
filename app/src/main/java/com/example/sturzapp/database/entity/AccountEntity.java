@@ -1,4 +1,4 @@
-package com.example.sturzapp.database;
+package com.example.sturzapp.database.entity;
 
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -6,6 +6,7 @@ import androidx.room.TypeConverters;
 
 @Entity(tableName = "accounts")
 public class AccountEntity {
+
     @PrimaryKey(autoGenerate = true)
     private int id;
     private String emailRP;
@@ -15,35 +16,46 @@ public class AccountEntity {
     private String emailNFK;
     private String nameNFK;
 
+    public AccountEntity() {
+    }
 
-        // Getter-Methoden
-        public int getId() {
-            return id;
-        }
+    public AccountEntity(String emailRP, String passwordRP, String firstNameRP, String lastNameRP, String emailNFK, String nameNFK) {
+        this.emailRP = emailRP;
+        this.passwordRP = passwordRP;
+        this.firstNameRP = firstNameRP;
+        this.lastNameRP = lastNameRP;
+        this.emailNFK = emailNFK;
+        this.nameNFK = nameNFK;
+    }
 
-        public String getEmailRP() {
-            return emailRP;
-        }
+    // Getter-Methoden
+    public int getId() {
+        return id;
+    }
 
-        public String getPasswordRP() {
-            return passwordRP;
-        }
+    public String getEmailRP() {
+        return emailRP;
+    }
 
-        public String getFirstNameRP() {
-            return firstNameRP;
-        }
+    public String getPasswordRP() {
+        return passwordRP;
+    }
 
-        public String getLastNameRP() {
-            return lastNameRP;
-        }
+    public String getFirstNameRP() {
+        return firstNameRP;
+    }
 
-        public String getEmailNFK() {
-            return emailNFK;
-        }
+    public String getLastNameRP() {
+        return lastNameRP;
+    }
 
-        public String getNameNFK() {
-            return nameNFK;
-        }
+    public String getEmailNFK() {
+        return emailNFK;
+    }
+
+    public String getNameNFK() {
+        return nameNFK;
+    }
 
 
     //Setter-Methoden

@@ -11,34 +11,20 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.sturzapp.database.AccountEntity;
-import com.example.sturzapp.database.DaoSturzapp;
-import com.example.sturzapp.database.DatabaseSturzapp;
+import com.example.sturzapp.database.SturzappDatabase;
+import com.example.sturzapp.database.entity.AccountEntity;
 import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Erstellen;
+import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Startseite;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private DatabaseSturzapp database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Datenbankverbindung herstellen
-        database = Room.databaseBuilder(getApplicationContext(), DatabaseSturzapp.class, "sturzapp-db")
-                .build();
-
-        // Ein Konto in die Datenbank einfügen
-        AccountEntity account = new AccountEntity();
-        insertAccount(account);
-
-        // Alle Konten aus der Datenbank abrufen
-        getAllAccounts();
-
-
 
 
 
@@ -52,6 +38,25 @@ public class MainActivity extends AppCompatActivity {
 
                 String email = editTextemailRP.getText().toString();
                 String password = editTextpasswordRP.getText().toString();
+
+                SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+                //speichern
+                new Thread(() -> {
+                    // Füge den Account in die Datenbank ein
+                    AccountEntity entity = db.accountDao().getAccountByEmailAndPassword(email, password);
+
+                    if(entity != null) {
+                        System.out.println(entity.getId());
+                        Intent intent2 = new Intent(MainActivity.this, Risikopatient_Startseite.class);
+                        intent2.putExtra("id", (long) entity.getId());
+
+                        startActivity(intent2);
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), R.string.wrong_password_text, Toast.LENGTH_SHORT).show();
+                    }
+
+                }).start();
 
                 Intent intent;
 
@@ -77,22 +82,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void insertAccount(AccountEntity account) {
-        new Thread(() -> {
-            DaoSturzapp dao = database.daoSturzapp();
-            dao.insertAccount(account);
-            Log.d(TAG, "Account inserted: " + account.getEmailRP());
-            runOnUiThread(() -> Toast.makeText(MainActivity.this, "Account inserted", Toast.LENGTH_SHORT).show());
-        }).start();
-    }
-
-    private void getAllAccounts() {
-        new Thread(() -> {
-            DaoSturzapp dao = database.daoSturzapp();
-            List<AccountEntity> accounts = dao.getAllAccounts();
-            for (AccountEntity account : accounts) {
-                Log.d(TAG, "Account: " + account.getEmailRP());
-            }
-        }).start();
-    }
 }

@@ -2,6 +2,7 @@ package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.EditText;
 
 import com.example.sturzapp.MainActivity;
 import com.example.sturzapp.R;
+import com.example.sturzapp.database.SturzappDatabase;
+import com.example.sturzapp.database.entity.AccountEntity;
 
 public class Risikopatient_Erstellen extends AppCompatActivity {
 
@@ -36,21 +39,20 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(Risikopatient_Erstellen.this, MainActivity.class);
 
                 startActivity(intent);
-
             }
         });
 
 
             Button button2 = findViewById(R.id.buttonCreateAccount);
 
+        Context context = getApplicationContext();
+
             button2.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
 
                     //Eingaben der Daten für Risikopatienten speichern
                     String emailRP = editTextemailRP_input.getText().toString();
@@ -58,24 +60,34 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
                     String firstNameRP = editTextfirstNameRP_input.getText().toString();
                     String lastNameRP = editTextlastNameRP_input.getText().toString();
 
-
                     //Eingaben der Daten für Notfallkontakt speichern
                     String emailNFK = editTextemailNFK_input.getText().toString();
                     String nameNFK = editTextnameNFK_input.getText().toString();
 
-                    Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
+                    //db
+                    SturzappDatabase db = SturzappDatabase.getInstance(context);
+                    //speichern
+                    new Thread(() -> {
+                        // Erstelle ein neues AccountEntity-Objekt
+                        AccountEntity account = new AccountEntity(
+                        emailRP,
+                                passwordRP, //TODO: hashen
+                                firstNameRP,
+                                lastNameRP,
+                                emailNFK,
+                                nameNFK
+                        );
 
-                    //Risikopatient Daten in Intent speichern
-                    intent2.putExtra("emailRP", emailRP);
-                    intent2.putExtra("passwordRP", passwordRP);
-                    intent2.putExtra("firstNameRP", firstNameRP);
-                    intent2.putExtra("lastNameRP", lastNameRP);
+                        // Füge den Account in die Datenbank ein
+                        long id = db.accountDao().insert(account);
 
-                    //Notfallkontaktdaten zu Risikopatient in Intent speichern
-                    intent2.putExtra("emailNFK", emailNFK);
-                    intent2.putExtra("nameNFK", nameNFK);
+                        Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
+                        intent2.putExtra("id", id);
 
-                    startActivity(intent2);
+                        startActivity(intent2);
+                    }).start();
+
+
 
                 }
             });

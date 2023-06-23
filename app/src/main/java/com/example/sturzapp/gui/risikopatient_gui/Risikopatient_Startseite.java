@@ -2,28 +2,56 @@ package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sturzapp.R;
+import com.example.sturzapp.database.SturzappDatabase;
+import com.example.sturzapp.database.entity.AccountEntity;
 
 
 public class Risikopatient_Startseite extends AppCompatActivity {
 
     Intent intent = getIntent();
 
-    //Risikopatientdaten
-    private String emailRP;
-    private String passwordRP;
-    private String firstNameRP;
-    private String lastNameRP;
+    private TextView textViewemailRP_display;
+    private TextView textViewpasswordRP_display;
+    private TextView textViewfirstNameRP_display;
+    private TextView textViewlastNameRP_display;
+    private long id;
 
-    //Notfallkontaktdaten
-    private String emailNFK;
-    private String nameNFK;
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
+        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
+
+        SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+        new Thread(() -> {
+            // aus db auslesen
+            AccountEntity entity = db.accountDao().getAccountById((int) id);
+
+            runOnUiThread(new Thread(() -> {
+                if (entity != null) {
+                    textViewemailRP_display.setText(entity.getEmailRP());
+                    textViewpasswordRP_display.setText(entity.getPasswordRP());
+                    textViewfirstNameRP_display.setText(entity.getFirstNameRP());
+                    textViewlastNameRP_display.setText(entity.getLastNameRP());
+                }
+            }));
+
+
+
+        }).start();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,30 +59,37 @@ public class Risikopatient_Startseite extends AppCompatActivity {
         setContentView(R.layout.activity_risikopatient_startseite);
 
 
-            // Daten aus dem Intent abrufen
-            Intent intent = getIntent();
-
-            //E-Mail des Risikopatienten in View anzeigen lassen
-             emailRP = intent.getStringExtra("emailRP");
-             passwordRP = intent.getStringExtra("passwordRP");
-             firstNameRP = intent.getStringExtra("firstNameRP");
-             lastNameRP = intent.getStringExtra("lastNameRP");
+        // Daten aus dem Intent abrufen
+        Intent intent = getIntent();
 
 
-            TextView textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-            TextView textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
-            TextView textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
-            TextView textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
+        textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
+        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
-        textViewemailRP_display.setText(emailRP);
-        textViewpasswordRP_display.setText(passwordRP);
-        textViewfirstNameRP_display.setText(firstNameRP);
-        textViewlastNameRP_display.setText(lastNameRP);
 
-        //Notfallkontaktdaten abspeichern
-        emailNFK = intent.getStringExtra("emailNFK");
-        nameNFK = intent.getStringExtra("nameNFK");
+        SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
+        //auslesen
+        new Thread(() -> {
+            id = intent.getLongExtra("id", -1);
+
+            System.out.println(id);
+
+            // aus db auslesen
+            AccountEntity entity = db.accountDao().getAccountById((int) id);
+
+            if(entity != null) {
+
+                textViewemailRP_display.setText(entity.getEmailRP());
+                textViewpasswordRP_display.setText(entity.getPasswordRP());
+                textViewfirstNameRP_display.setText(entity.getFirstNameRP());
+                textViewlastNameRP_display.setText(entity.getLastNameRP());
+            }
+
+
+        }).start();
 
         Button button1 = findViewById(R.id.buttonDatenAendern);
 
@@ -64,10 +99,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
 
                 Intent intent1 = new Intent(Risikopatient_Startseite.this, Risikopatient_Daten_Aendern.class);
 
-                intent1.putExtra("emailRP", emailRP);
-                intent1.putExtra("passwordRP", passwordRP);
-                intent1.putExtra("firstNameRP", firstNameRP);
-                intent1.putExtra("lastNameRP", lastNameRP);
+                intent1.putExtra("id", id);
 
                 startActivity(intent1);
 
@@ -82,8 +114,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
 
                 Intent intent2 = new Intent(Risikopatient_Startseite.this, Risikopatient_Notfallkontakt_Aendern.class);
 
-                intent2.putExtra("emailNFK", emailNFK);
-                intent2.putExtra("nameNFK", nameNFK);
+                intent2.putExtra("id", id);
 
                 startActivity(intent2);
             }
@@ -97,7 +128,6 @@ public class Risikopatient_Startseite extends AppCompatActivity {
                 intent2.putExtra("rp_lastName", rp_lastName);
                 intent2.putExtra("rp_address", rp_address);
                 intent2.putExtra("rp_plz", rp_plz); */
-
 
 
     }
