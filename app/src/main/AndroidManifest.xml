@@ -18,6 +18,7 @@
         <activity
             android:name=".gui.risikopatient_gui.Risikopatient_Notfallbutton"
             android:exported="false"
+
          />
 
         <activity
