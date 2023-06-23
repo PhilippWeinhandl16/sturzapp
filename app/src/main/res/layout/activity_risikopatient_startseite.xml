@@ -36,7 +36,7 @@
     <TextView
         android:id="@+id/textViewpasswordRP_display"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_below="@id/textViewemailRP_display"
         android:layout_marginTop="8dp"
         android:layout_centerHorizontal="true"
@@ -80,9 +80,10 @@
         android:layout_below="@id/buttonDatenAendern"
         android:layout_marginTop="32dp"
         android:layout_centerHorizontal="true"
-        android:text="Hier sehen Sie Ihren zugehörigen Notfallkontakt"
+        android:text="Hier können Sie Ihren zugehörigen Notfallkontakt ändern"
         android:textSize="32dp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        />
 
     <Button
         android:id="@+id/buttonNotfallkontakt_aendern"
@@ -92,6 +93,15 @@
         android:layout_marginTop="16dp"
         android:layout_centerHorizontal="true"
         android:text="Ihren Notfallkontakt ändern" />
+
+    <Button
+        android:id="@+id/button_zumNotfallbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonNotfallkontakt_aendern"
+        android:layout_marginTop="16dp"
+        android:layout_centerHorizontal="true"
+        android:text="Hier kommen Sie zu dem Notfallbutton" />
 
 </RelativeLayout>
 

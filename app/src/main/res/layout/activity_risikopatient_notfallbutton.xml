@@ -31,5 +31,12 @@
         android:textAlignment="center"
         android:textSize="22dp"/>
 
+    <Button
+        android:id="@+id/Button_backToStartseite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Zurück zur Startseite"
+        android:layout_marginTop="50dp" />
+
 </LinearLayout>
 

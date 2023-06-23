@@ -23,6 +23,23 @@ public class Risikopatient_Notfallbutton extends AppCompatActivity {
             public void onClick(View view) {
 
                 send_EmergencyEmail();
+
+
+
+                Button Button_backToStartseite = findViewById(R.id.Button_backToStartseite);
+
+                Button_backToStartseite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(Risikopatient_Notfallbutton.this, Risikopatient_Startseite.class);
+
+                        startActivity(intent);
+
+                    }
+                });
+
+
             }
         });
 
