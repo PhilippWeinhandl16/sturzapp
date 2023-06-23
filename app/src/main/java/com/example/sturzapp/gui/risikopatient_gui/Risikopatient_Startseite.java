@@ -120,6 +120,22 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             }
         });
 
+        Button button_zumNotfallbutton = findViewById(R.id.button_zumNotfallbutton);
+
+        button_zumNotfallbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent1 = new Intent(Risikopatient_Startseite.this, Risikopatient_Notfallbutton.class);
+
+                startActivity(intent1);
+            }
+        });
+
+
+
+
+
         // Daten in einem neuen Intent speichern
 
               /*  intent2.putExtra("rp_e_mail", rp_e_mail);
