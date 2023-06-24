@@ -15,13 +15,12 @@ import com.example.sturzapp.database.entity.AccountEntity;
 
 public class RisikopatientStartseite extends AppCompatActivity {
 
-    Intent intent = getIntent();
 
-    private TextView textViewemailRP_display;
-    private TextView textViewpasswordRP_display;
-    private TextView textViewfirstNameRP_display;
-    private TextView textViewlastNameRP_display;
-    private long id;
+    public TextView textViewemailRP_display;
+    public TextView textViewpasswordRP_display;
+    public TextView textViewfirstNameRP_display;
+    public TextView textViewlastNameRP_display;
+    public long id;
 
     @Override
     protected void onResume() {
@@ -29,7 +28,7 @@ public class RisikopatientStartseite extends AppCompatActivity {
 
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
         textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
-        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
