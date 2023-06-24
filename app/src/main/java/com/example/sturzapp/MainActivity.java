@@ -22,9 +22,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
-
         Button button_login = findViewById(R.id.buttonLogin);
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,21 +38,20 @@ public class MainActivity extends AppCompatActivity {
                     // Füge den Account in die Datenbank ein
                     AccountEntity entity = db.accountDao().getAccountByEmailAndPassword(email, password);
 
-                    if(entity != null) {
+                    if (entity != null) {
                         System.out.println(entity.getId());
                         Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
                         intent2.putExtra("id", (long) entity.getId());
-
                         startActivity(intent2);
-
                     } else {
-                        Toast.makeText(getApplicationContext(), R.string.wrong_password_text, Toast.LENGTH_SHORT).show();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Toast.makeText(MainActivity.this, R.string.wrong_password_text, Toast.LENGTH_SHORT).show();
+                            }
+                        });
                     }
-
                 }).start();
-
-                Intent intent;
-
             }
         });
 
@@ -64,18 +60,13 @@ public class MainActivity extends AppCompatActivity {
         button_accountErstellen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-                Intent  intent = new Intent(MainActivity.this, RisikopatientErstellen.class);
-
-                    startActivity(intent);
-        }
+                Intent intent = new Intent(MainActivity.this, RisikopatientErstellen.class);
+                startActivity(intent);
+            }
         });
 
-        //Sturzerkennungs-Service starten
+        // Sturzerkennungs-Service starten
         Intent serviceIntent = new Intent(this, SturzerkennungsService.class);
         startService(serviceIntent);
-
     }
-
 }

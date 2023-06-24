@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sturzapp.R;
+import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
 public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
@@ -20,44 +21,44 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riskiopatient_notfallkontakt_aendern);
 
-        Intent intent = getIntent();
-
-
-        String emailNFK = intent.getStringExtra("emailNFK");
-        String nameNFK = intent.getStringExtra("nameNFK");
-
-        //EditText Objekte erzeugen
+        // EditText Objekte erzeugen
         EditText editTextemailNFK = findViewById(R.id.editTextemailNFK_change);
         EditText editTextnameNFK = findViewById(R.id.editTextnameNFK_change);
 
-        //EditText - Notfallkontakt Daten anzeigen lassen
+        Button saveChanges = findViewById(R.id.Button_NFK_change);
 
-        editTextemailNFK.setText(emailNFK);
-        editTextnameNFK.setText(nameNFK);
+        Intent intent = getIntent();
 
-        Button button_notfallkontakt_aendern = findViewById(R.id.Button_NFK_change);
+        SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
-        button_notfallkontakt_aendern.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        // auslesen
+        new Thread(() -> {
+            long id = intent.getLongExtra("id", -1);
 
-                Intent intent2 = new Intent(RisikopatientNotfallkontaktAendern.this, RisikopatientStartseite.class);
+            // aus db auslesen
+            entity = db.accountDao().getAccountById((int) id);
 
-                String emailNFK_updatet = editTextemailNFK.getText().toString();
-                String nameNFK_updatet = editTextnameNFK.getText().toString();
+            if (entity != null) {
+                editTextemailNFK.setText(entity.getEmailNFK());
+                editTextnameNFK.setText(entity.getNameNFK());
+            }
+        }).start();
 
-                intent2.putExtra("emailNFK_updatet", emailNFK_updatet);
-                intent2.putExtra("nameNFK_updatet", nameNFK_updatet);
+        saveChanges.setOnClickListener(it -> {
+            if (entity != null) {
+                // check obs eh gesetzt ist --> sonst Fehler
+                new Thread(() -> {
+                    entity.setEmailNFK(editTextemailNFK.getText().toString());
+                    entity.setNameNFK(editTextnameNFK.getText().toString());
 
-                startActivity(intent2);
+                    // update
+                    db.accountDao().update(entity);
 
-
-
-
+                    runOnUiThread(() -> {
+                        onBackPressed();
+                    });
+                }).start();
             }
         });
-
-
-
     }
 }

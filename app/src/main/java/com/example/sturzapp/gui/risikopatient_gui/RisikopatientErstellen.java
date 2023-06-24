@@ -70,7 +70,7 @@ public class RisikopatientErstellen extends AppCompatActivity {
                     new Thread(() -> {
                         // Erstelle ein neues AccountEntity-Objekt
                         AccountEntity account = new AccountEntity(
-                        emailRP,
+                                emailRP,
                                 passwordRP, //TODO: hashen
                                 firstNameRP,
                                 lastNameRP,

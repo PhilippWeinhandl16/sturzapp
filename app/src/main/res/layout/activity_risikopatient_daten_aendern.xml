@@ -68,7 +68,7 @@
         android:id="@+id/buttonZurückZurMainActivity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonCreateAccount"
+        android:layout_below="@id/buttonChangeAccount"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
         android:text="Zurück zur Anmeldeseite"
