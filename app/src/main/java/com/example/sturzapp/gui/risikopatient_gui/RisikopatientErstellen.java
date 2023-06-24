@@ -14,7 +14,7 @@ import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
-public class Risikopatient_Erstellen extends AppCompatActivity {
+public class RisikopatientErstellen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Risikopatient_Erstellen.this, MainActivity.class);
+                Intent intent = new Intent(RisikopatientErstellen.this, MainActivity.class);
 
                 startActivity(intent);
             }
@@ -81,7 +81,7 @@ public class Risikopatient_Erstellen extends AppCompatActivity {
                         // Füge den Account in die Datenbank ein
                         long id = db.accountDao().insert(account);
 
-                        Intent intent2 = new Intent(Risikopatient_Erstellen.this, Risikopatient_Startseite.class);
+                        Intent intent2 = new Intent(RisikopatientErstellen.this, RisikopatientStartseite.class);
                         intent2.putExtra("id", id);
 
                         startActivity(intent2);

@@ -6,10 +6,7 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.sturzapp.MainActivity;
-import com.example.sturzapp.R;
-
-public class Splash_Activity extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     private static final int SPLASH_TIMEOUT = 2000; // Zeit in Millisekunden, bis zum Wechsel zur Hauptaktivität
 
     @Override
@@ -24,7 +21,7 @@ public class Splash_Activity extends AppCompatActivity {
             @Override
             public void run() {
                 // Erstelle eine Intent für die Hauptaktivität
-                Intent intent = new Intent(Splash_Activity.this, MainActivity.class);
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
 
                 // Beende die SplashActivity

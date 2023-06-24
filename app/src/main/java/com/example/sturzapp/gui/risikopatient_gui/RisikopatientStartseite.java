@@ -2,20 +2,18 @@ package com.example.sturzapp.gui.risikopatient_gui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
 
-public class Risikopatient_Startseite extends AppCompatActivity {
+public class RisikopatientStartseite extends AppCompatActivity {
 
     Intent intent = getIntent();
 
@@ -97,7 +95,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent(Risikopatient_Startseite.this, Risikopatient_Daten_Aendern.class);
+                Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientDatenAendern.class);
 
                 intent1.putExtra("id", id);
 
@@ -112,7 +110,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent2 = new Intent(Risikopatient_Startseite.this, Risikopatient_Notfallkontakt_Aendern.class);
+                Intent intent2 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallkontaktAendern.class);
 
                 intent2.putExtra("id", id);
 
@@ -126,7 +124,7 @@ public class Risikopatient_Startseite extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent1 = new Intent(Risikopatient_Startseite.this, Risikopatient_Notfallbutton.class);
+                Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallbutton.class);
 
                 startActivity(intent1);
             }

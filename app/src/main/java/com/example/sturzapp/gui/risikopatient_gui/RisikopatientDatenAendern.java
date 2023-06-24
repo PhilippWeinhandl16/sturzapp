@@ -11,7 +11,7 @@ import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
-public class Risikopatient_Daten_Aendern extends AppCompatActivity {
+public class RisikopatientDatenAendern extends AppCompatActivity {
 
 
     private AccountEntity entity = null;

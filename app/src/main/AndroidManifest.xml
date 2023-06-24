@@ -16,13 +16,13 @@
         android:theme="@style/Theme.Sturzapp"
         tools:targetApi="31">
         <activity
-            android:name=".gui.risikopatient_gui.Risikopatient_Notfallbutton"
+            android:name=".gui.risikopatient_gui.RisikopatientNotfallbutton"
             android:exported="false"
 
          />
 
         <activity
-            android:name=".Splash_Activity"
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,16 +31,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".gui.risikopatient_gui.Risikopatient_Notfallkontakt_Aendern"
+            android:name=".gui.risikopatient_gui.RisikopatientNotfallkontaktAendern"
             android:exported="false" />
         <activity
-            android:name=".gui.risikopatient_gui.Risikopatient_Daten_Aendern"
+            android:name=".gui.risikopatient_gui.RisikopatientDatenAendern"
             android:exported="false" />
         <activity
-            android:name=".gui.risikopatient_gui.Risikopatient_Startseite"
+            android:name=".gui.risikopatient_gui.RisikopatientStartseite"
             android:exported="false" />
         <activity
-            android:name=".gui.risikopatient_gui.Risikopatient_Erstellen"
+            android:name=".gui.risikopatient_gui.RisikopatientErstellen"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

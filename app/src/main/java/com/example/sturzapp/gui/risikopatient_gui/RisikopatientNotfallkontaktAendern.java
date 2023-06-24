@@ -9,8 +9,11 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sturzapp.R;
+import com.example.sturzapp.database.entity.AccountEntity;
 
-public class Risikopatient_Notfallkontakt_Aendern extends AppCompatActivity {
+public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
+
+    private AccountEntity entity = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +41,7 @@ public class Risikopatient_Notfallkontakt_Aendern extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent2 = new Intent(Risikopatient_Notfallkontakt_Aendern.this, Risikopatient_Startseite.class);
+                Intent intent2 = new Intent(RisikopatientNotfallkontaktAendern.this, RisikopatientStartseite.class);
 
                 String emailNFK_updatet = editTextemailNFK.getText().toString();
                 String nameNFK_updatet = editTextnameNFK.getText().toString();

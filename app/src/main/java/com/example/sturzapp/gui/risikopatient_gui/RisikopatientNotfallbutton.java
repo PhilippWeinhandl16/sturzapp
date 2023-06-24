@@ -9,7 +9,7 @@ import android.widget.Button;
 
 import com.example.sturzapp.R;
 
-public class Risikopatient_Notfallbutton extends AppCompatActivity {
+public class RisikopatientNotfallbutton extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class Risikopatient_Notfallbutton extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 
-                        Intent intent = new Intent(Risikopatient_Notfallbutton.this, Risikopatient_Startseite.class);
+                        Intent intent = new Intent(RisikopatientNotfallbutton.this, RisikopatientStartseite.class);
 
                         startActivity(intent);
 

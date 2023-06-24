@@ -1,11 +1,9 @@
 package com.example.sturzapp;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,10 +11,8 @@ import android.widget.Toast;
 
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
-import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Erstellen;
-import com.example.sturzapp.gui.risikopatient_gui.Risikopatient_Startseite;
-
-import java.util.List;
+import com.example.sturzapp.gui.risikopatient_gui.RisikopatientErstellen;
+import com.example.sturzapp.gui.risikopatient_gui.RisikopatientStartseite;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.getSimpleName();
@@ -47,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                     if(entity != null) {
                         System.out.println(entity.getId());
-                        Intent intent2 = new Intent(MainActivity.this, Risikopatient_Startseite.class);
+                        Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
                         intent2.putExtra("id", (long) entity.getId());
 
                         startActivity(intent2);
@@ -70,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                Intent  intent = new Intent(MainActivity.this, Risikopatient_Erstellen.class);
+                Intent  intent = new Intent(MainActivity.this, RisikopatientErstellen.class);
 
                     startActivity(intent);
         }
