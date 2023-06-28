@@ -30,6 +30,9 @@ public interface AccountDao {
     @Query("SELECT * FROM accounts WHERE emailRP = :email AND passwordRP = :password")
     AccountEntity getAccountByEmailAndPassword(String email, String password);
 
+    @Query("SELECT * FROM accounts WHERE emailRP = :email")
+    AccountEntity getAccountByEmail(String email);
+
 }
 
 

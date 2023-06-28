@@ -29,28 +29,45 @@ public class MainActivity extends AppCompatActivity {
                 EditText editTextemailRP = findViewById(R.id.editTextemailRP);
                 EditText editTextpasswordRP = findViewById(R.id.editTextpasswordRP);
 
-                String email = editTextemailRP.getText().toString();
-                String password = editTextpasswordRP.getText().toString();
+                String emailRP = editTextemailRP.getText().toString();
+                String passwordRP = editTextpasswordRP.getText().toString();
 
                 SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
                 //speichern
                 new Thread(() -> {
                     // Füge den Account in die Datenbank ein
-                    AccountEntity entity = db.accountDao().getAccountByEmailAndPassword(email, password);
+                    AccountEntity entity = db.accountDao().getAccountByEmail(emailRP);
+
 
                     if (entity != null) {
-                        System.out.println(entity.getId());
-                        Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
-                        intent2.putExtra("id", (long) entity.getId());
-                        startActivity(intent2);
-                    } else {
+
+                        String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
+
+                        if (hashedPasswordRP.equals(entity.getPasswordRP())) {
+                            Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
+                            intent2.putExtra("id", (long) entity.getId());
+                            startActivity(intent2);
+                        } else {
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(MainActivity.this, "Ihr eingegebenes Passwort ist nicht richtig", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+
+                    }else {
+
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                Toast.makeText(MainActivity.this, R.string.wrong_password_text, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Ihr Account wurde nicht gefunden", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }
+
+                        }
+
+
                 }).start();
             }
         });

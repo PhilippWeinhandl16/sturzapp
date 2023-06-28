@@ -39,7 +39,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
             runOnUiThread(new Thread(() -> {
                 if (entity != null) {
                     textViewemailRP_display.setText(entity.getEmailRP());
-                    textViewpasswordRP_display.setText(entity.getPasswordRP());
                     textViewfirstNameRP_display.setText(entity.getFirstNameRP());
                     textViewlastNameRP_display.setText(entity.getLastNameRP());
                 }
