@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.sturzapp.MainActivity;
+import com.example.sturzapp.PasswordHasher;
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
@@ -64,6 +65,8 @@ public class RisikopatientErstellen extends AppCompatActivity {
                     String emailNFK = editTextemailNFK_input.getText().toString();
                     String nameNFK = editTextnameNFK_input.getText().toString();
 
+                    String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
+
                     //db
                     SturzappDatabase db = SturzappDatabase.getInstance(context);
                     //speichern
@@ -71,7 +74,7 @@ public class RisikopatientErstellen extends AppCompatActivity {
                         // Erstelle ein neues AccountEntity-Objekt
                         AccountEntity account = new AccountEntity(
                                 emailRP,
-                                passwordRP, //TODO: hashen
+                                hashedPasswordRP,
                                 firstNameRP,
                                 lastNameRP,
                                 emailNFK,

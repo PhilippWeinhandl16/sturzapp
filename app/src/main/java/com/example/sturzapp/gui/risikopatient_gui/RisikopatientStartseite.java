@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sturzapp.PasswordHasher;
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
@@ -27,7 +28,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
         super.onResume();
 
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
         textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
@@ -61,7 +61,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
 
 
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewpasswordRP_display = findViewById(R.id.textViewpasswordRP_display);
         textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
@@ -80,7 +79,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
             if(entity != null) {
 
                 textViewemailRP_display.setText(entity.getEmailRP());
-                textViewpasswordRP_display.setText(entity.getPasswordRP());
                 textViewfirstNameRP_display.setText(entity.getFirstNameRP());
                 textViewlastNameRP_display.setText(entity.getLastNameRP());
             }
@@ -128,21 +126,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
-
-
-
-
-
-        // Daten in einem neuen Intent speichern
-
-              /*  intent2.putExtra("rp_e_mail", rp_e_mail);
-                intent2.putExtra("rp_passwort", rp_passwort);
-                intent2.putExtra("rp_firstName", rp_firstName);
-                intent2.putExtra("rp_lastName", rp_lastName);
-                intent2.putExtra("rp_address", rp_address);
-                intent2.putExtra("rp_plz", rp_plz); */
-
-
     }
 
 
