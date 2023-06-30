@@ -1,5 +1,8 @@
 package com.example.sturzapp;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -7,20 +10,24 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.Build;
 import android.os.IBinder;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 
 public class SturzerkennungsService extends Service implements SensorEventListener {
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
     private static final int SHAKE_THRESHOLD = 50;
-    //vorher 600 juhu
 
     private long lastUpdate = 0;
     private float last_x, last_y, last_z;
+
+    private static final int NOTIFICATION_ID = 1;
+    private static final String CHANNEL_ID = "SturzerkennungsServiceChannel";
 
     @Override
     public void onCreate() {
@@ -29,6 +36,8 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+        createNotificationChannel();
+        startForeground(NOTIFICATION_ID, buildNotification());
     }
 
     @Override
@@ -42,35 +51,25 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         Sensor sensor = event.sensor;
 
         if (sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            // Werte für jede Achse erhalten
             float x = event.values[0];
             float y = event.values[1];
             float z = event.values[2];
 
-            // Aktuelle Zeit speichern
             long curTime = System.currentTimeMillis();
 
             if ((curTime - lastUpdate) > 100) {
                 long diffTime = (curTime - lastUpdate);
                 lastUpdate = curTime;
 
-                // Hier kannst du weitere Logik implementieren, um zu überprüfen, ob ein Sturz stattgefunden hat
-
-                // Berechne die Änderung der Beschleunigungswerte
                 float deltaX = x - last_x;
                 float deltaY = y - last_y;
                 float deltaZ = z - last_z;
 
-                // Berechne die Gesamtbeschleunigung
                 float acceleration = (float) Math.sqrt(deltaX * deltaX + deltaY * deltaY + deltaZ * deltaZ);
 
-                // Überprüfe, ob die Gesamtbeschleunigung den Schwellenwert überschreitet
                 if (acceleration > SHAKE_THRESHOLD) {
-                    // Sturz erkannt, hier kannst du entsprechende Aktionen ausführen
-                    // Beispiel: Eine Meldung anzeigen
                     Toast.makeText(this, "Sturz erkannt!", Toast.LENGTH_LONG).show();
-
-                    sendEmergencyEmail();
+                    //sendEmergencyEmail();
                 }
 
                 last_x = x;
@@ -91,8 +90,29 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         return null;
     }
 
-    public void sendEmergencyEmail() {
+    private void createNotificationChannel() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    CHANNEL_ID,
+                    "SturzerkennungsService",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+    }
 
+    private Notification buildNotification() {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
+                .setSmallIcon(R.drawable.ic_launcher_foreground)
+                .setContentTitle("SturzerkennungsService läuft")
+                .setContentText("Überwache Beschleunigungssensor")
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        return builder.build();
+    }
+
+    /*private void sendEmergencyEmail() {
         String[] emailNFK = {"daniel.manser2002@gmail.com"};
         String subject = "Notfallmeldung";
         String body = "Ihr Risikopatient ist gestürzt! Womöglich benötigt er Hilfe";
@@ -105,7 +125,5 @@ public class SturzerkennungsService extends Service implements SensorEventListen
        // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Füge diese Zeile hinzu, um den Intent aus einem Service heraus zu starten
 
         startActivity(Intent.createChooser(intent, "E-Mail senden"));
-
-    }
+    }*/
 }
-
