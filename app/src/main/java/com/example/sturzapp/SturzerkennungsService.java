@@ -16,7 +16,8 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
-    private static final int SHAKE_THRESHOLD = 600;
+    private static final int SHAKE_THRESHOLD = 10;
+    //vorher 600
 
     private long lastUpdate = 0;
     private float last_x, last_y, last_z;
