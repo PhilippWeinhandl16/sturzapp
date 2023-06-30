@@ -68,6 +68,8 @@ public class SturzerkennungsService extends Service implements SensorEventListen
                     // Sturz erkannt, hier kannst du entsprechende Aktionen ausführen
                     // Beispiel: Eine Meldung anzeigen
                     Toast.makeText(this, "Sturz erkannt!", Toast.LENGTH_LONG).show();
+
+                    sendEmergencyEmail();
                 }
 
                 last_x = x;
@@ -86,6 +88,14 @@ public class SturzerkennungsService extends Service implements SensorEventListen
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    public void sendEmergencyEmail() {
+
+        Intent intent = new Intent(SturzerkennungsService.this, EmailVersendenActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
     }
 }
 

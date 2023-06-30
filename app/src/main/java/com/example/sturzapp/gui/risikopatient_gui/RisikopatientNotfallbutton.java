@@ -22,7 +22,7 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                send_EmergencyEmail();
+                sendEmergencyEmail();
 
 
 
@@ -45,7 +45,7 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
 
     }
 
-    public void send_EmergencyEmail(){
+    public void sendEmergencyEmail(){
 
         String [] emailNFK = {"daniel.manser2002@gmail.com"};
         String subject = "Notfallmeldung";
