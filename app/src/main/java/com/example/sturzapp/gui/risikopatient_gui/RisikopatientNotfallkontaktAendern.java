@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.util.Patterns;
+import android.widget.Toast;
 
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
@@ -31,11 +33,11 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
-        // auslesen
+        // Auslesen
         new Thread(() -> {
             long id = intent.getLongExtra("id", -1);
 
-            // aus db auslesen
+            // Aus Datenbank auslesen
             entity = db.accountDao().getAccountById((int) id);
 
             if (entity != null) {
@@ -46,12 +48,21 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
         saveChanges.setOnClickListener(it -> {
             if (entity != null) {
-                // check obs eh gesetzt ist --> sonst Fehler
-                new Thread(() -> {
-                    entity.setEmailNFK(editTextemailNFK.getText().toString());
-                    entity.setNameNFK(editTextnameNFK.getText().toString());
+                // Eingabe überprüfen
+                String emailNFK = editTextemailNFK.getText().toString();
+                String nameNFK = editTextnameNFK.getText().toString();
 
-                    // update
+                if (!isValidEmail(emailNFK)) {
+                    Toast.makeText(this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Check ob eh gesetzt ist --> sonst Fehler
+                new Thread(() -> {
+                    entity.setEmailNFK(emailNFK);
+                    entity.setNameNFK(nameNFK);
+
+                    // Update
                     db.accountDao().update(entity);
 
                     runOnUiThread(() -> {
@@ -60,5 +71,10 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
                 }).start();
             }
         });
+    }
+
+    private boolean isValidEmail(String email) {
+        // Verwendung des vordefinierten Musters für E-Mail-Validierung
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 }

@@ -1,11 +1,12 @@
 package com.example.sturzapp.gui.risikopatient_gui;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
@@ -13,8 +14,11 @@ import com.example.sturzapp.database.entity.AccountEntity;
 
 public class RisikopatientDatenAendern extends AppCompatActivity {
 
-
     private AccountEntity entity = null;
+
+    private boolean isValidEmail(String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,51 +30,55 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
         EditText editTextfirstNameRP_change = findViewById(R.id.editTextfirstNameRP_change);
         EditText editTextlastNameRP_change = findViewById(R.id.editTextlastNameRP_change);
 
-
         Button saveChanges = findViewById(R.id.buttonChangeAccount);
 
         Intent intent = getIntent();
 
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
-        //auslesen
+        // Auslesen
         new Thread(() -> {
             long id = intent.getLongExtra("id", -1);
 
-            // aus db auslesen
+            // Aus Datenbank auslesen
             entity = db.accountDao().getAccountById((int) id);
 
-            if(entity != null) {
+            if (entity != null) {
                 editTextemailRP_change.setText(entity.getEmailRP());
                 editTextpasswordRP_change.setText(entity.getPasswordRP());
                 editTextfirstNameRP_change.setText(entity.getFirstNameRP());
                 editTextlastNameRP_change.setText(entity.getLastNameRP());
             }
-
-
         }).start();
 
         saveChanges.setOnClickListener(it -> {
-            if (entity != null) {                // check obs eh gesetzt ist --> sont fehler
+            if (entity != null) {
+                // Eingaben aus den Textfeldern auslesen
+                String emailRP = editTextemailRP_change.getText().toString();
+                String passwordRP = editTextpasswordRP_change.getText().toString();
+                String firstNameRP = editTextfirstNameRP_change.getText().toString();
+                String lastNameRP = editTextlastNameRP_change.getText().toString();
+
+                if (!isValidEmail(emailRP)) {
+                    Toast.makeText(RisikopatientDatenAendern.this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Aktualisieren der AccountEntity
                 new Thread(() -> {
-                    entity.setEmailRP(editTextemailRP_change.getText() + "");
-                    entity.setPasswordRP(editTextpasswordRP_change.getText() + "");
-                    entity.setFirstNameRP(editTextfirstNameRP_change.getText() + "");
-                    entity.setLastNameRP(editTextlastNameRP_change.getText() + "");
+                    entity.setEmailRP(emailRP);
+                    entity.setPasswordRP(passwordRP);
+                    entity.setFirstNameRP(firstNameRP);
+                    entity.setLastNameRP(lastNameRP);
 
-
-                    // update
+                    // Account in der Datenbank aktualisieren
                     db.accountDao().update(entity);
 
                     runOnUiThread(new Thread(() -> {
                         onBackPressed();
                     }));
-
                 }).start();
             }
-
-            });
-
-
-        }
+        });
     }
+}
