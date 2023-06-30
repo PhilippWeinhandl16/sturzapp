@@ -92,9 +92,18 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
     public void sendEmergencyEmail() {
 
-        Intent intent = new Intent(SturzerkennungsService.this, EmailVersendenActivity.class); //test
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        String[] emailNFK = {"daniel.manser2002@gmail.com"};
+        String subject = "Notfallmeldung";
+        String body = "Ihr Risikopatient ist gestürzt! Womöglich benötigt er Hilfe";
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("message/rfc822");
+        intent.putExtra(Intent.EXTRA_EMAIL, emailNFK);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Füge diese Zeile hinzu, um den Intent aus einem Service heraus zu starten
+
+        startActivity(Intent.createChooser(intent, "E-Mail senden"));
 
     }
 }
