@@ -25,6 +25,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
     @Override
     public void onCreate() {
         super.onCreate();
+
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         sensorManager.registerListener(this, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);
@@ -101,7 +102,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         intent.putExtra(Intent.EXTRA_EMAIL, emailNFK);
         intent.putExtra(Intent.EXTRA_SUBJECT, subject);
         intent.putExtra(Intent.EXTRA_TEXT, body);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Füge diese Zeile hinzu, um den Intent aus einem Service heraus zu starten
+       // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Füge diese Zeile hinzu, um den Intent aus einem Service heraus zu starten
 
         startActivity(Intent.createChooser(intent, "E-Mail senden"));
 
