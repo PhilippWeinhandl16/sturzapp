@@ -3,6 +3,7 @@ package com.example.sturzapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -83,7 +84,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Sturzerkennungs-Service starten
-        Intent serviceIntent = new Intent(this, SturzerkennungsService.class);
-        startForegroundService(serviceIntent);
+        Intent serviceIntent = new Intent(MainActivity.this, SturzerkennungsService.class);
+            startService(serviceIntent);
+
     }
 }
