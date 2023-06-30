@@ -84,6 +84,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Sturzerkennungs-Service starten
         Intent serviceIntent = new Intent(this, SturzerkennungsService.class);
-        startService(serviceIntent);
+        startForegroundService(serviceIntent);
     }
 }

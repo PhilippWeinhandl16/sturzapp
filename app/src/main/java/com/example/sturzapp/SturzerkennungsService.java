@@ -16,7 +16,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
     private SensorManager sensorManager;
     private Sensor accelerometer;
-    private static final int SHAKE_THRESHOLD = 10;
+    private static final int SHAKE_THRESHOLD = 50;
     //vorher 600
 
     private long lastUpdate = 0;
@@ -67,7 +67,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
                 if (acceleration > SHAKE_THRESHOLD) {
                     // Sturz erkannt, hier kannst du entsprechende Aktionen ausführen
                     // Beispiel: Eine Meldung anzeigen
-                    Toast.makeText(this, "Sturz erkannt!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Sturz erkannt!", Toast.LENGTH_LONG).show();
                 }
 
                 last_x = x;
