@@ -18,16 +18,25 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     private AccountEntity entity = null;
 
+    private EditText editTextemailNFK;
+    private EditText editTextnameNFK;
+    private Button button_saveChanges;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riskiopatient_notfallkontakt_aendern);
 
-        // EditText Objekte erzeugen
-        EditText editTextemailNFK = findViewById(R.id.editTextemailNFK_change);
-        EditText editTextnameNFK = findViewById(R.id.editTextnameNFK_change);
+        initializeViews();
 
-        Button saveChanges = findViewById(R.id.Button_NFK_change);
+        button_saveChanges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                saveChanges();
+
+            }
+        });
 
         Intent intent = getIntent();
 
@@ -41,36 +50,57 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
             entity = db.accountDao().getAccountById((int) id);
 
             if (entity != null) {
-                editTextemailNFK.setText(entity.getEmailNFK());
-                editTextnameNFK.setText(entity.getNameNFK());
+                displayAccountInfo();
             }
         }).start();
 
-        saveChanges.setOnClickListener(it -> {
-            if (entity != null) {
-                // Eingabe überprüfen
-                String emailNFK = editTextemailNFK.getText().toString();
-                String nameNFK = editTextnameNFK.getText().toString();
 
-                if (!isValidEmail(emailNFK)) {
-                    Toast.makeText(this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+    }
 
-                // Check ob eh gesetzt ist --> sonst Fehler
-                new Thread(() -> {
-                    entity.setEmailNFK(emailNFK);
-                    entity.setNameNFK(nameNFK);
 
-                    // Update
-                    db.accountDao().update(entity);
+    private void initializeViews() {
 
-                    runOnUiThread(() -> {
-                        onBackPressed();
-                    });
-                }).start();
+        editTextemailNFK = findViewById(R.id.editTextemailNFK_change);
+        editTextnameNFK = findViewById(R.id.editTextnameNFK_change);
+        button_saveChanges = findViewById(R.id.Button_NFK_change);
+
+
+    }
+
+    private void displayAccountInfo () {
+
+        editTextemailNFK.setText(entity.getEmailNFK());
+        editTextnameNFK.setText(entity.getNameNFK());
+
+    }
+
+    private void saveChanges() {
+
+        if (entity != null) {
+            // Eingabe überprüfen
+            String emailNFK = editTextemailNFK.getText().toString();
+            String nameNFK = editTextnameNFK.getText().toString();
+
+            if (!isValidEmail(emailNFK)) {
+                Toast.makeText(this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
+                return;
             }
-        });
+
+            // Check ob eh gesetzt ist --> sonst Fehler
+            new Thread(() -> {
+                entity.setEmailNFK(emailNFK);
+                entity.setNameNFK(nameNFK);
+
+                // Update
+                SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+                db.accountDao().update(entity);
+
+                runOnUiThread(() -> {
+                    onBackPressed();
+                });
+            }).start();
+        }
+
     }
 
     private boolean isValidEmail(String email) {
