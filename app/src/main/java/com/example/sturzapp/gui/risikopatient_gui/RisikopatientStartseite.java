@@ -80,7 +80,7 @@ public class RisikopatientStartseite extends AppCompatActivity {
     private void initializeViews() {
 
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
+        textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
     }
