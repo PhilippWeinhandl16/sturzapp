@@ -18,7 +18,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
 
 
     public TextView textViewemailRP_display;
-    public TextView textViewpasswordRP_display;
     public TextView textViewfirstNameRP_display;
     public TextView textViewlastNameRP_display;
     public long id;
@@ -27,10 +26,66 @@ public class RisikopatientStartseite extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        initializeViews();
+        loadAccountInfo();
+
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_risikopatient_startseite);
+
+        // Daten aus dem Intent abrufen
+        Intent intent = getIntent();
+        id = intent.getLongExtra("id", -1);
+
+        initializeViews();
+        loadAccountInfo();
+
+
+        SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+
+
+        Button button1 = findViewById(R.id.buttonDatenAendern);
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToRisikopatientDatenAendern();
+
+            }
+        });
+
+        //Button um Daten von Notfallkontakt zu ändern
+        Button Button2 = findViewById(R.id.buttonNotfallkontakt_aendern);
+        Button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToRisikopatientNotfallkontaktAendern();
+
+            }
+        });
+
+
+        Button button_zumNotfallbutton = findViewById(R.id.button_zumNotfallbutton);
+        button_zumNotfallbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToRisikopatientNotfallbutton();
+
+            }
+        });
+    }
+
+    private void initializeViews() {
+
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
+        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
 
+    }
+
+    private void loadAccountInfo() {
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
         new Thread(() -> {
             // aus db auslesen
@@ -47,84 +102,30 @@ public class RisikopatientStartseite extends AppCompatActivity {
 
 
         }).start();
+
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_risikopatient_startseite);
+    private void navigateToRisikopatientDatenAendern() {
 
+        Intent intent = new Intent(RisikopatientStartseite.this, RisikopatientDatenAendern.class);
+        intent.putExtra("id", id);
+        startActivity(intent);
 
-        // Daten aus dem Intent abrufen
-        Intent intent = getIntent();
+    }
 
+    private void navigateToRisikopatientNotfallbutton() {
 
-        textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewfirstNameRP_display = findViewById(R.id.textViewemailRP_display);
-        textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
+        Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallbutton.class);
+        startActivity(intent1);
 
+    }
 
-        SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+    private void navigateToRisikopatientNotfallkontaktAendern() {
 
-        //auslesen
-        new Thread(() -> {
-            id = intent.getLongExtra("id", -1);
+        Intent intent2 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallkontaktAendern.class);
+        intent2.putExtra("id", id);
+        startActivity(intent2);
 
-            System.out.println(id);
-
-            // aus db auslesen
-            AccountEntity entity = db.accountDao().getAccountById((int) id);
-
-            if(entity != null) {
-
-                textViewemailRP_display.setText(entity.getEmailRP());
-                textViewfirstNameRP_display.setText(entity.getFirstNameRP());
-                textViewlastNameRP_display.setText(entity.getLastNameRP());
-            }
-
-
-        }).start();
-
-        Button button1 = findViewById(R.id.buttonDatenAendern);
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientDatenAendern.class);
-
-                intent1.putExtra("id", id);
-
-                startActivity(intent1);
-
-            }
-        });
-
-        //Button um Daten von Notfallkontakt zu ändern
-        Button Button2 = findViewById(R.id.buttonNotfallkontakt_aendern);
-        Button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent2 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallkontaktAendern.class);
-
-                intent2.putExtra("id", id);
-
-                startActivity(intent2);
-            }
-        });
-
-        Button button_zumNotfallbutton = findViewById(R.id.button_zumNotfallbutton);
-
-        button_zumNotfallbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallbutton.class);
-
-                startActivity(intent1);
-            }
-        });
     }
 
 
