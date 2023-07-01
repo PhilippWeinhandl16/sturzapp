@@ -102,6 +102,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         }
     }
 
+
     private Notification buildNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
