@@ -16,19 +16,19 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
 
     private AccountEntity entity = null;
 
-    private boolean isValidEmail(String email) {
-        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
-    }
+    EditText editTextemailRP_change;
+    EditText editTextpasswordRP_change;
+    EditText editTextfirstNameRP_change;
+    EditText editTextlastNameRP_change;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risikopatient_daten_aendern);
 
-        EditText editTextemailRP_change = findViewById(R.id.editTextemailRP_change);
-        EditText editTextpasswordRP_change = findViewById(R.id.editTextpasswordRP_change);
-        EditText editTextfirstNameRP_change = findViewById(R.id.editTextfirstNameRP_change);
-        EditText editTextlastNameRP_change = findViewById(R.id.editTextlastNameRP_change);
+        initializeViews();
 
         Button saveChanges = findViewById(R.id.buttonChangeAccount);
 
@@ -39,15 +39,11 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
         // Auslesen
         new Thread(() -> {
             long id = intent.getLongExtra("id", -1);
-
             // Aus Datenbank auslesen
             entity = db.accountDao().getAccountById((int) id);
 
             if (entity != null) {
-                editTextemailRP_change.setText(entity.getEmailRP());
-                editTextpasswordRP_change.setText(entity.getPasswordRP());
-                editTextfirstNameRP_change.setText(entity.getFirstNameRP());
-                editTextlastNameRP_change.setText(entity.getLastNameRP());
+                displayAccountInfo();
             }
         }).start();
 
@@ -64,21 +60,53 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
                     return;
                 }
 
-                // Aktualisieren der AccountEntity
-                new Thread(() -> {
-                    entity.setEmailRP(emailRP);
-                    entity.setPasswordRP(passwordRP);
-                    entity.setFirstNameRP(firstNameRP);
-                    entity.setLastNameRP(lastNameRP);
+                updateAccount(emailRP, passwordRP, firstNameRP, lastNameRP);
 
-                    // Account in der Datenbank aktualisieren
-                    db.accountDao().update(entity);
-
-                    runOnUiThread(new Thread(() -> {
-                        onBackPressed();
-                    }));
-                }).start();
             }
         });
     }
+
+    private void initializeViews() {
+
+        editTextemailRP_change = findViewById(R.id.editTextemailRP_change);
+        editTextpasswordRP_change = findViewById(R.id.editTextpasswordRP_change);
+        editTextfirstNameRP_change = findViewById(R.id.editTextfirstNameRP_change);
+        editTextlastNameRP_change = findViewById(R.id.editTextlastNameRP_change);
+
+    }
+
+    private void displayAccountInfo() {
+
+        editTextemailRP_change.setText(entity.getEmailRP());
+        editTextpasswordRP_change.setText(entity.getPasswordRP());
+        editTextfirstNameRP_change.setText(entity.getFirstNameRP());
+        editTextlastNameRP_change.setText(entity.getLastNameRP());
+
+    }
+
+    private void updateAccount(String emailRP, String passwordRP, String firstNameRP, String lastNameRP) {
+        // Aktualisieren der AccountEntity
+        new Thread(() -> {
+            entity.setEmailRP(emailRP);
+            entity.setPasswordRP(passwordRP);
+            entity.setFirstNameRP(firstNameRP);
+            entity.setLastNameRP(lastNameRP);
+
+            // Account in der Datenbank aktualisieren
+            SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
+            db.accountDao().update(entity);
+
+            runOnUiThread(new Thread(() -> {
+                onBackPressed();
+            }));
+        }).start();
+
+
+
+    }
+
+    private boolean isValidEmail(String email) {
+        return Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
 }
