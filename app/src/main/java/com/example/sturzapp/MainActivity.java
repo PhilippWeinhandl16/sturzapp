@@ -14,12 +14,19 @@ import com.example.sturzapp.database.entity.AccountEntity;
 import com.example.sturzapp.gui.risikopatient_gui.RisikopatientErstellen;
 import com.example.sturzapp.gui.risikopatient_gui.RisikopatientStartseite;
 
+/**
+ * Die {@code MainActivity} ist die Einstiegsaktivität der Sturzapp
+ * Der Benutzer kann sich in dieser anmelden, um auf die {@link RisikopatientStartseite} zu gelangen
+ * Der Benutzer kann auch einen neuen Risikopatienten-Account erstellen
+ */
 public class MainActivity extends AppCompatActivity {
-    private static final String TAG = MainActivity.class.getSimpleName();
 
     private EditText editTextemailRP;
     private EditText editTextpasswordRP;
 
+    /**
+     * Die Methode {@starteSturzerkennungsService()} startet den SturzerkennungsService
+     */
     private void starteSturzerkennungsService() {
         Intent serviceIntent = new Intent(this, SturzerkennungsService.class);
         startService(serviceIntent);
@@ -31,9 +38,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initializeViews();
-
         starteSturzerkennungsService();
 
+        /**
+         * Der Button {@code button_login} wird hier instanziert
+         */
         Button button_login = findViewById(R.id.buttonLogin);
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
                 String emailRP = editTextemailRP.getText().toString();
                 String passwordRP = editTextpasswordRP.getText().toString();
 
+                /**
+                 * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+                 */
                 SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
-
 
                 new Thread(new Runnable() {
                     @Override
@@ -65,27 +76,41 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * Der Button {@code button_accountErstellen} wird hier instanziert
+         */
         Button button_accountErstellen = findViewById(R.id.button_createAccount);
         button_accountErstellen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 navigateToRisikopatientErstellen();
-
             }
         });
     }
 
+    /**
+     * Die {@code initializeViews()} Methode initialisiert die editText-Elemente der Aktivität
+     */
     private void initializeViews() {
         editTextemailRP = findViewById(R.id.editTextemailRP);
         editTextpasswordRP = findViewById(R.id.editTextpasswordRP);
     }
 
+    /**
+     * Navigiert zur Startseite des Risikopatienten mit der gegebenen Account-ID
+     * @param accountId Die ID des Risikopatienten-Accounts
+     */
     private void navigateToRisikopatientStartseite(long accountId) {
         Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
         intent2.putExtra("id", accountId);
         startActivity(intent2);
     }
 
+    /**
+     * Zeigt eine Toast-Nachricht mit der gegebenen Nachricht an
+     *
+     * @param message Die Nachricht, die angezeigt werden soll
+     */
     private void showToast(String message) {
         runOnUiThread(new Runnable() {
             @Override
@@ -95,6 +120,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Navigiert zur {@link RisikopatientErstellen} Aktivität zum Erstellen eines Risikopatienten-Accounts
+     */
     private void navigateToRisikopatientErstellen() {
         Intent intent = new Intent(MainActivity.this, RisikopatientErstellen.class);
         startActivity(intent);
