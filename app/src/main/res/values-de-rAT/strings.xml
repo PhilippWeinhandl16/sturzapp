@@ -20,11 +20,10 @@
     <string name="first_name">Vorname</string>
     <string name="last_name">Nachname</string>
     <string name="change_data">Daten ändern</string>
-    <string name="back_to_login">Zurück zur Anmeldeseite</string>
     <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
     <string name="input_emergency_contact">Eingabe des Notfallkontakts</string>
     <string name="full_name">Name</string>
-    <string name="back_to_login_page">Zurück zur Anmeldeseite</string>
+    <string name="back_to_login_page">Zurück zur Startseite</string>
     <string name="report_emergency_to_contact">Hier können Sie einen Notfall an Ihren angeführten Notfallkontakt melden</string>
     <string name="emergency_button">Bitte nur im Notfall anwenden!</string>
     <string name="apply_only_in_emergency">Bitte nur im Notfall anwenden!</string>
@@ -41,4 +40,5 @@
     <string name="change_emergency_contact">Ihren Notfallkontakt ändern</string>
     <string name="go_to_emergency_button">Hier kommen Sie zu dem Notfallbutton</string>
     <string name="change_emergency_contact_data">Daten von ihrem Notfallkontakt ändern</string>
+    <string name="back_to_starting_page">Zurück zur Startseite</string>
 </resources>

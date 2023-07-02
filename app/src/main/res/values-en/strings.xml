@@ -20,7 +20,6 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Surname</string>
     <string name="change_data">Change data</string>
-    <string name="back_to_login">Back to Log in Side</string>
     <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
     <string name="input_emergency_contact">Input of the emergency contact</string>
     <string name="full_name">Name</string>
@@ -41,4 +40,5 @@
     <string name="go_to_emergency_button">Here you go to the emergency button</string>
     <string name="your_selection_risk_patient">Signed in as: Risk Patient</string>
     <string name="change_emergency_contact_data">Change emergency contact data</string>
+    <string name="back_to_starting_page">Back to Starting page</string>
 </resources>

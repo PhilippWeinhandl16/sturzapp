@@ -1,4 +1,5 @@
 package com.example.sturzapp.gui.risikopatient_gui;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -16,12 +17,10 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
 
     private AccountEntity entity = null;
 
-    EditText editTextemailRP_change;
-    EditText editTextpasswordRP_change;
-    EditText editTextfirstNameRP_change;
-    EditText editTextlastNameRP_change;
-
-
+    private EditText editTextEmailRPChange;
+    private EditText editTextPasswordRPChange;
+    private EditText editTextFirstNameRPChange;
+    private EditText editTextLastNameRPChange;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,83 +29,74 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
 
         initializeViews();
 
-        Button saveChanges = findViewById(R.id.buttonChangeAccount);
+        Button buttonSaveChanges = findViewById(R.id.buttonChangeAccount);
+        Button buttonBackToStartingPage = findViewById(R.id.buttonZurückZurMainActivity);
 
         Intent intent = getIntent();
 
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
-        // Auslesen
         new Thread(() -> {
             long id = intent.getLongExtra("id", -1);
-            // Aus Datenbank auslesen
             entity = db.accountDao().getAccountById((int) id);
 
             if (entity != null) {
-                displayAccountInfo();
+                runOnUiThread(() -> displayAccountInfo());
             }
         }).start();
 
-        saveChanges.setOnClickListener(it -> {
+        buttonSaveChanges.setOnClickListener(view -> {
             if (entity != null) {
-                // Eingaben aus den Textfeldern auslesen
-                String emailRP = editTextemailRP_change.getText().toString();
-                String passwordRP = editTextpasswordRP_change.getText().toString();
-                String firstNameRP = editTextfirstNameRP_change.getText().toString();
-                String lastNameRP = editTextlastNameRP_change.getText().toString();
+                String emailRP = editTextEmailRPChange.getText().toString().trim();
+                String passwordRP = editTextPasswordRPChange.getText().toString().trim();
+                String firstNameRP = editTextFirstNameRPChange.getText().toString().trim();
+                String lastNameRP = editTextLastNameRPChange.getText().toString().trim();
 
-                if (!isValidEmail(emailRP)) {
-                    Toast.makeText(RisikopatientDatenAendern.this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
+                if (emailRP.isEmpty() || !isValidEmail(emailRP)) {
+                    Toast.makeText(this, "Ungültige E-Mail-Adresse", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 updateAccount(emailRP, passwordRP, firstNameRP, lastNameRP);
-
             }
         });
+
+        buttonBackToStartingPage.setOnClickListener(view -> navigateToRisikopatientStartseite());
     }
 
     private void initializeViews() {
-
-        editTextemailRP_change = findViewById(R.id.editTextemailRP_change);
-        editTextpasswordRP_change = findViewById(R.id.editTextpasswordRP_change);
-        editTextfirstNameRP_change = findViewById(R.id.editTextfirstNameRP_change);
-        editTextlastNameRP_change = findViewById(R.id.editTextlastNameRP_change);
-
+        editTextEmailRPChange = findViewById(R.id.editTextemailRP_change);
+        editTextPasswordRPChange = findViewById(R.id.editTextpasswordRP_change);
+        editTextFirstNameRPChange = findViewById(R.id.editTextfirstNameRP_change);
+        editTextLastNameRPChange = findViewById(R.id.editTextlastNameRP_change);
     }
 
     private void displayAccountInfo() {
-
-        editTextemailRP_change.setText(entity.getEmailRP());
-        editTextpasswordRP_change.setText(entity.getPasswordRP());
-        editTextfirstNameRP_change.setText(entity.getFirstNameRP());
-        editTextlastNameRP_change.setText(entity.getLastNameRP());
-
+        editTextEmailRPChange.setText(entity.getEmailRP());
+        editTextPasswordRPChange.setText(entity.getPasswordRP());
+        editTextFirstNameRPChange.setText(entity.getFirstNameRP());
+        editTextLastNameRPChange.setText(entity.getLastNameRP());
     }
 
     private void updateAccount(String emailRP, String passwordRP, String firstNameRP, String lastNameRP) {
-        // Aktualisieren der AccountEntity
         new Thread(() -> {
             entity.setEmailRP(emailRP);
             entity.setPasswordRP(passwordRP);
             entity.setFirstNameRP(firstNameRP);
             entity.setLastNameRP(lastNameRP);
 
-            // Account in der Datenbank aktualisieren
             SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
             db.accountDao().update(entity);
 
-            runOnUiThread(new Thread(() -> {
-                onBackPressed();
-            }));
+            runOnUiThread(this::onBackPressed);
         }).start();
-
-
-
     }
 
     private boolean isValidEmail(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 
+    private void navigateToRisikopatientStartseite() {
+        onBackPressed();
+    }
 }
