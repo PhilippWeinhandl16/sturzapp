@@ -5,14 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="16dp"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewRiskPatient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier sehen Sie Ihre aktuellen Daten "
+        android:text="@string/current_data"
         android:textSize="26dp"
         android:textStyle="normal" />
 
@@ -23,7 +22,7 @@
         android:layout_below="@id/textViewRiskPatient"
         android:layout_marginTop="16dp"
         android:background="@color/white"
-        android:hint="E-Mail-Adresse" />
+        android:hint="@string/email_address" />
 
     <EditText
         android:id="@+id/editTextpasswordRP_change"
@@ -32,7 +31,7 @@
         android:layout_below="@id/editTextemailRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:hint="Passwort"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <EditText
@@ -42,7 +41,7 @@
         android:layout_below="@id/editTextpasswordRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:hint="Vorname" />
+        android:hint="@string/first_name" />
 
     <EditText
         android:id="@+id/editTextlastNameRP_change"
@@ -51,7 +50,7 @@
         android:layout_below="@id/editTextfirstNameRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:hint="Nachname" />
+        android:hint="@string/last_name" />
 
 
     <Button
@@ -61,7 +60,7 @@
         android:layout_below="@id/editTextlastNameRP_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:text="Daten ändern"
+        android:text="@string/change_data"
         android:textColor="@color/white" />
 
     <Button
@@ -71,8 +70,7 @@
         android:layout_below="@id/buttonChangeAccount"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:text="Zurück zur Anmeldeseite"
+        android:text="@string/back_to_login"
         android:textColor="@android:color/white" />
-
 
 </RelativeLayout>

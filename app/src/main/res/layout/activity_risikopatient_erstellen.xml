@@ -5,14 +5,13 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:padding="16dp"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewRP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier erstellen Sie einen Risikopatienten"
+        android:text="@string/create_risk_patient"
         android:textSize="26dp"
         android:textStyle="normal" />
 
@@ -21,18 +20,18 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/textViewRP"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@color/white"
-        android:hint="E-Mail-Adresse" />
+        android:hint="@string/email_address" />
 
     <EditText
         android:id="@+id/editTextpasswordRP_input"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/editTextemailRP_input"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:hint="Passwort"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <EditText
@@ -40,56 +39,55 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/editTextpasswordRP_input"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:hint="Vorname" />
+        android:hint="@string/first_name" />
 
     <EditText
         android:id="@+id/editTextlastNameRP_input"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/editTextfirstNameRP_input"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:hint="Nachname" />
+        android:hint="@string/last_name" />
 
     <TextView
         android:id="@+id/textViewNFK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextlastNameRP_input"
-        android:layout_marginTop="30dp"
-        android:text="Eingabe des Notfallkontakts"
+        android:layout_marginTop="23dp"
+        android:text="@string/input_emergency_contact"
         android:textSize="26dp"
         android:textStyle="normal" />
-
 
     <EditText
         android:id="@+id/editTextemailNFK_input"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/textViewNFK"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="17dp"
         android:background="@android:color/white"
-        android:hint="E-Mail-Adresse" />
+        android:hint="@string/email_address" />
 
     <EditText
         android:id="@+id/editTextnameNFK_input"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/editTextemailNFK_input"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:hint="Vor- und Nachname" />
+        android:hint="@string/full_name" />
 
     <Button
         android:id="@+id/buttonCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextnameNFK_input"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:background="@android:color/white"
-        android:text="Account erstellen"
+        android:text="@string/create_account"
         android:textColor="@color/white" />
 
     <Button
@@ -99,8 +97,7 @@
         android:layout_below="@id/buttonCreateAccount"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:text="Zurück zur Anmeldeseite"
+        android:text="@string/back_to_login_page"
         android:textColor="@android:color/white" />
-
 
 </RelativeLayout>

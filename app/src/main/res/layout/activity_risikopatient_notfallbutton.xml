@@ -10,7 +10,7 @@
         android:id="@+id/TextView_Notfall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier können Sie einen Notfall an Ihren angeführten Notfallkontakt melden"
+        android:text="@string/report_emergency_to_contact"
         android:textSize="26dp"
         android:textAlignment="center"
         android:layout_marginBottom="16dp"
@@ -20,7 +20,7 @@
         android:id="@+id/Button_Notfallbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Notfallbutton"
+        android:text="@string/emergency_button"
         android:layout_marginBottom="16dp"
         />
 
@@ -28,7 +28,7 @@
         android:id="@+id/TextView_nurimNotfall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bitte nur im Notfall anwenden!"
+        android:text="@string/apply_only_in_emergency"
         android:textAlignment="center"
         android:textSize="22dp"/>
 
@@ -36,8 +36,7 @@
         android:id="@+id/Button_backToStartseite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Zurück zur Startseite"
+        android:text="@string/back_to_home"
         android:layout_marginTop="50dp" />
 
 </LinearLayout>
-

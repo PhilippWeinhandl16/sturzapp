@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">sturzapp</string>
     <string name="title_activity_login">LoginActivity</string>
@@ -6,39 +7,38 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">Welcome!</string>
-    <string name="email_adress">Email-Adresse</string>
+    <string name="email_adress">Email-Adress</string>
+    <string name="surname">Surname</string>
+    <string name="welcome_text">Welcome in the Sturzmart App!</string>
+    <string name="login_description">Here you can login with your Account!</string>
+    <string name="email_address">E-Mail Adress</string>
+    <string name="password">Password</string>
+    <string name="login">Sign in</string>
+    <string name="no_account">No Account?</string>
+    <string name="create_account">Create new Account</string>
+    <string name="current_data">Here you can see the recent data</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Surname</string>
+    <string name="change_data">Change data</string>
+    <string name="back_to_login">Back to Log in Side</string>
+    <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
+    <string name="input_emergency_contact">Input of the emergency contact</string>
+    <string name="full_name">Name</string>
+    <string name="back_to_login_page">Back to the Log in Page</string>
+    <string name="report_emergency_to_contact">Here you can report an emergency to your listed emergency contact</string>
+    <string name="emergency_button">Emergency Button</string>
+    <string name="apply_only_in_emergency">Please use only in case of emergency!</string>
+    <string name="back_to_home">Return to Home Page</string>
     <string name="app_logo">App Logo</string>
     <string name="title_activity_notfallkontakt_startseite">Emergency contact Home</string>
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="wrong_password_text">Incorrect user and password</string>
-    <string name="login_description">Here you can login with your Account!</string>
-    <string name="email_address">E-Mail Adresse</string>
-    <string name="password">Passwort</string>
-    <string name="login">Sign in</string>
-    <string name="no_account">No Account?</string>
-    <string name="create_account">Create new Account</string>
-    <string name="first_name">First Name</string>
-    <string name="change_data">Change data</string>
-    <string name="back_to_login">Back to Log in Side</string>
-    <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
-    <string name="surname">Surname</string>
-    <string name="welcome_text">Welcome in the Sturzmart App!</string>
-    <string name="current_data">Here you can see the recent data</string>
-    <string name="last_name">Surname</string>
-    <string name="input_emergency_contact">Input of the emergency contact</string>
-    <string name="full_name">Name</string>
-    <string name="back_to_login_page">Back to the Log in Page</string>
-    <string name="report_emergency_to_contact">Here you can report an emergency to your listed emergency contact</string>
-    <string name="apply_only_in_emergency">Please use only in case of emergency!</string>
-    <string name="back_to_home">Return to Home Page</string>
-    <string name="emergency_button">Emergency Button</string>
-    <string name="your_selection_risk_patient">Signed in as: Risk Patient</string>
     <string name="signed_in_as">SIgned in as:</string>
     <string name="email">E-Mail</string>
     <string name="change_related_emergency_contact">Here you can change your related emergency contact</string>
     <string name="change_emergency_contact">Change emergency contact</string>
     <string name="go_to_emergency_button">Here you go to the emergency button</string>
+    <string name="your_selection_risk_patient">Signed in as: Risk Patient</string>
     <string name="change_emergency_contact_data">Change emergency contact data</string>
-
 </resources>

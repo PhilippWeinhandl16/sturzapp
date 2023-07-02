@@ -3,7 +3,6 @@ package com.example.sturzapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextemailRP;
     private EditText editTextpasswordRP;
 
+    private void starteSturzerkennungsService() {
+        Intent serviceIntent = new Intent(this, SturzerkennungsService.class);
+        startService(serviceIntent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         initializeViews();
 
+        starteSturzerkennungsService();
 
         Button button_login = findViewById(R.id.buttonLogin);
         button_login.setOnClickListener(new View.OnClickListener() {
@@ -45,9 +50,9 @@ public class MainActivity extends AppCompatActivity {
                         AccountEntity entity = db.accountDao().getAccountByEmail(emailRP);
 
                         if (entity != null) {
-                            String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
+                            String PasswordRP = passwordRP;
 
-                            if (hashedPasswordRP.equals(entity.getPasswordRP())) {
+                            if (PasswordRP.equals(entity.getPasswordRP())) {
                                 navigateToRisikopatientStartseite(entity.getId());
                             } else {
                                 showToast("Ihr eingegebenes Passwort ist nicht richtig");
@@ -68,44 +73,30 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        // Sturzerkennungs-Service starten
-        Intent serviceIntent = new Intent(MainActivity.this, SturzerkennungsService.class);
-            startService(serviceIntent);
-
     }
 
     private void initializeViews() {
-
         editTextemailRP = findViewById(R.id.editTextemailRP);
         editTextpasswordRP = findViewById(R.id.editTextpasswordRP);
-
     }
 
     private void navigateToRisikopatientStartseite(long accountId) {
-
         Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
         intent2.putExtra("id", (long) accountId);
         startActivity(intent2);
-
     }
 
     private void showToast(String message) {
-
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
                 Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
             }
         });
-
     }
 
     private void navigateToRisikopatientErstellen() {
-
         Intent intent = new Intent(MainActivity.this, RisikopatientErstellen.class);
         startActivity(intent);
-
     }
-
-
 }

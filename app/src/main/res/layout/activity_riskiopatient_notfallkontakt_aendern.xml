@@ -8,7 +8,7 @@
         android:id="@+id/TextViewNFK_aendern"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Daten von ihrem Notfallkontakt ändern"
+        android:text="@string/change_emergency_contact_data"
         android:textSize="26dp"
         android:textStyle="bold"
         android:layout_gravity="center"
@@ -18,7 +18,7 @@
         android:id="@+id/editTextemailNFK_change"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="E-Mail-Adresse"
+        android:hint="@string/email_address"
         android:inputType="textEmailAddress"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="20dp"/>
@@ -27,11 +27,9 @@
         android:id="@+id/editTextnameNFK_change"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Vorname und Nachname"
+        android:hint="@string/full_name"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="20dp"/>
-
-
 
     <Button
         android:id="@+id/Button_NFK_change"
@@ -40,8 +38,7 @@
         android:layout_below="@id/editTextnameNFK_change"
         android:layout_marginTop="16dp"
         android:background="@android:color/white"
-        android:text="Notfallkontakt ändern"
+        android:text="@string/change_emergency_contact"
         android:textColor="@color/white" />
-
 
 </LinearLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">sturzapp</string>
+    <string name="welcome">"Willkommen! "</string>
+    <string name="email_adress">Email-Adresse</string>
+    <string name="surname">Nachname</string>
+    <string name="welcome_text">Willkommen in der Sturzmart App!</string>
+    <string name="login_description">Hier können Sie sich mit ihrem bestehenen Account anmelden!</string>
+    <string name="email_address">E-Mail Adresse</string>
+    <string name="password">Passwort</string>
+    <string name="login">Anmelden</string>
+    <string name="title_activity_login">LoginAktivität</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Passwort</string>
+    <string name="action_sign_in">Anmelden oder Registrieren</string>
+    <string name="action_sign_in_short">Anmelden</string>
+    <string name="no_account">Noch keinen Account?</string>
+    <string name="create_account">Neuen Account Erstellen</string>
+    <string name="current_data">Hier sehen Sie Ihre aktuellen Daten</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="change_data">Daten ändern</string>
+    <string name="back_to_login">Zurück zur Anmeldeseite</string>
+    <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
+    <string name="input_emergency_contact">Eingabe des Notfallkontakts</string>
+    <string name="full_name">Name</string>
+    <string name="back_to_login_page">Zurück zur Anmeldeseite</string>
+    <string name="report_emergency_to_contact">Hier können Sie einen Notfall an Ihren angeführten Notfallkontakt melden</string>
+    <string name="emergency_button">Bitte nur im Notfall anwenden!</string>
+    <string name="apply_only_in_emergency">Bitte nur im Notfall anwenden!</string>
+    <string name="back_to_home">Zurück zur Startseite</string>
+    <string name="app_logo">App Logo</string>
+    <string name="title_activity_notfallkontakt_startseite">NotfallkontaktStartseite</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="wrong_password_text">Benutzer und Passwort falsch</string>
+    <string name="your_selection_risk_patient">Ihre Auswahl: Risikopatient</string>
+    <string name="signed_in_as">"Sie sind angemeldet als: "</string>
+    <string name="email">E-Mail</string>
+    <string name="change_related_emergency_contact">Hier können Sie Ihren zugehörigen Notfallkontakt ändern</string>
+    <string name="change_emergency_contact">Ihren Notfallkontakt ändern</string>
+    <string name="go_to_emergency_button">Hier kommen Sie zu dem Notfallbutton</string>
+    <string name="change_emergency_contact_data">Daten von ihrem Notfallkontakt ändern</string>
+</resources>

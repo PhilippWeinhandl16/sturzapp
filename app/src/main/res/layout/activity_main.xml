@@ -10,7 +10,7 @@
         android:id="@+id/textView_willkommenstext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Willkommen in der Sturzmart App!"
+        android:text="@string/welcome_text"
         android:textSize="24dp"
         android:textStyle="bold"
         android:layout_marginTop="20dp"/>
@@ -19,18 +19,17 @@
         android:id="@+id/textViewerklaerung"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hier können Sie sich mit ihrem bestehenen Account anmelden!"
+        android:text="@string/login_description"
         android:layout_below="@id/textView_willkommenstext"
         android:textSize="18dp"
         android:layout_marginTop="20dp"/>
-
 
     <EditText
         android:id="@+id/editTextemailRP"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/textViewerklaerung"
-        android:hint="@string/email_adresse"
+        android:hint="@string/email_address"
         android:layout_marginTop="20dp"/>
 
     <EditText
@@ -38,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_below="@id/editTextemailRP"
-        android:hint="Passwort"
+        android:hint="@string/password"
         android:inputType="textPassword" />
 
     <Button
@@ -46,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/editTextpasswordRP"
-        android:text="Anmelden"
+        android:text="@string/login"
         android:layout_marginTop="20dp"/>
 
     <TextView
@@ -56,10 +55,7 @@
         android:layout_below="@id/buttonLogin"
         android:layout_marginTop="48dp"
         android:textSize="18dp"
-        android:text="Noch keinen Account?" />
-
-
-
+        android:text="@string/no_account" />
 
     <Button
         android:id="@+id/button_createAccount"
@@ -67,8 +63,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView_kein_account"
         android:layout_marginTop="16dp"
-        android:text="Neuen Account Erstellen" />
-
-
+        android:text="@string/create_account" />
 
 </RelativeLayout>
