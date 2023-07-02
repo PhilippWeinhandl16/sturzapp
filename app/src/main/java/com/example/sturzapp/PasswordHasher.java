@@ -4,7 +4,17 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * Die Klasse {@code PasswordHasher} bietet Methoden zum Hashen von Passwörtern an
+ * Sie verwendet den SHA-256-Algorithmus zum Hashen der Passwörter
+ */
 public class PasswordHasher {
+
+    /**
+     * Diese Methode hash das übergebene Passwort mit Hilfe des SHA-256-Algorithmus
+     * @param passwordRP ist das Passwort das gehasht wird
+     * @return  das gehashte Passworts als Hexadezimalzeichenkette
+     */
     public static String hashPassword(String passwordRP) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
@@ -16,6 +26,11 @@ public class PasswordHasher {
         }
     }
 
+    /**
+     * Diese Methode konvertiert ein Byte-Array in eine Hexadezimalzeichenkette
+     * @param bytes das zu konvertierende Byte-Array
+     * @return  die Hexadezimalzeichenkette, die das Byte-Array repräsentiert
+     */
     private static String bytesToHexString(byte[] bytes) {
         StringBuilder result = new StringBuilder();
         for (byte b : bytes) {
