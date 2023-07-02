@@ -105,6 +105,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+        // Hier kannst du die Genauigkeit des Sensors behandeln, falls erforderlich
     }
 
     @Nullable
@@ -139,29 +140,39 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         new Thread(() -> {
+            // Account-Informationen aus der Datenbank abrufen
             AccountEntity account = db.accountDao().getAccountById(1);
+
+            // Ersetze 12 durch die entsprechende ID des eingeloggten Benutzers
 
             String subject = "Notfallmeldung";
             String body = "Ihr Risikopatient hat einen Sturz gehabt! Womöglich benötigt er Hilfe";
 
+            // Standort abrufen
             String location = getCurrentLocation();
 
+            // Standort zur E-Mail hinzufügen
             body += "\n\nStandort: " + location;
 
+            // Google Maps Link erstellen
             String mapsLink = "https://www.google.com/maps/search/?api=1&query=" + Uri.encode(location);
             body += "\n\nGoogle Maps Standort: " + mapsLink;
 
+            // Intent erstellen, um die E-Mail zu senden
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("message/rfc822");
             intent.putExtra(Intent.EXTRA_EMAIL, new String[]{account.getEmailNFK()});
             intent.putExtra(Intent.EXTRA_SUBJECT, subject);
             intent.putExtra(Intent.EXTRA_TEXT, body);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Setze die FLAG_ACTIVITY_NEW_TASK Flag
 
+            // Überprüfen, ob eine Activity zum Handhaben des Intents verfügbar ist
             PackageManager packageManager = getPackageManager();
             if (intent.resolveActivity(packageManager) != null) {
+                // E-Mail-Activity starten
                 startActivity(intent);
             } else {
+                // Keine E-Mail-App verfügbar
                 Toast.makeText(getApplicationContext(), "Keine E-Mail-App gefunden", Toast.LENGTH_SHORT).show();
             }
         }).start();
@@ -170,6 +181,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
     public String getCurrentLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Berechtigungen noch nicht erteilt, fordere sie an
             Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
             Uri uri = Uri.fromParts("package", getPackageName(), null);
             intent.setData(uri);
@@ -178,6 +190,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
             return "Standortberechtigung nicht erteilt";
         }
 
+        // Standort synchron abrufen
         try {
             Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (lastKnownLocation != null) {
@@ -196,21 +209,28 @@ public class SturzerkennungsService extends Service implements SensorEventListen
     class LocationListenerImpl implements LocationListener {
         @Override
         public void onLocationChanged(@NonNull Location location) {
+            // Standortaktualisierungen empfangen
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
+            // Hier kannst du den aktuellen Standort verwenden oder speichern
+            // Zum Beispiel: latitude + ", " + longitude;
+            // Den LocationListener wieder entfernen, wenn der Standort empfangen wurde
             locationManager.removeUpdates(this);
         }
 
         @Override
         public void onProviderEnabled(@NonNull String provider) {
+            // Standortanbieter aktiviert
         }
 
         @Override
         public void onProviderDisabled(@NonNull String provider) {
+            // Standortanbieter deaktiviert
         }
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
+            // Standortstatusänderungen behandeln, falls erforderlich
         }
     }
 }
