@@ -13,7 +13,12 @@ import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
+/**
+ * Die Klasse {@code RisikopatientDatenAendern} erweitert {@link AppCompatActivity}
+ * und in dieser Activity können die Daten des Risikopatienten geändert werden.
+ */
 public class RisikopatientDatenAendern extends AppCompatActivity {
+
 
     private AccountEntity entity = null;
 
@@ -21,6 +26,8 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
     private EditText editTextPasswordRPChange;
     private EditText editTextFirstNameRPChange;
     private EditText editTextLastNameRPChange;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,10 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
             }
         }).start();
 
+        /**
+         * Bei Klick des Buttons "buttonsaveChanges" werden die Änderungen des Accounts durchgeführt
+         */
+
         buttonSaveChanges.setOnClickListener(view -> {
             if (entity != null) {
                 String emailRP = editTextEmailRPChange.getText().toString().trim();
@@ -61,9 +72,18 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
             }
         });
 
+        /**
+         * Bei Klick des Buttons "buttonBackToStartingPage" wird man zurück zur RisikopatientStartseite
+         * Klasse navigiert in dem die "navigateToRisikopatientStartseite() Methode
+         * aufgerufen wird
+         */
+
         buttonBackToStartingPage.setOnClickListener(view -> navigateToRisikopatientStartseite());
     }
 
+    /**
+     * Die Methode {@code initializeViews} initialisiert die EditText-Felder der Aktivität
+     */
     private void initializeViews() {
         editTextEmailRPChange = findViewById(R.id.editTextemailRP_change);
         editTextPasswordRPChange = findViewById(R.id.editTextpasswordRP_change);
@@ -71,6 +91,9 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
         editTextLastNameRPChange = findViewById(R.id.editTextlastNameRP_change);
     }
 
+    /**
+     * Die Methode {@code displayAccountInfo} füllt die EditText-Felder mit den Daten des AccountEntity-Objekts
+     */
     private void displayAccountInfo() {
         editTextEmailRPChange.setText(entity.getEmailRP());
         editTextPasswordRPChange.setText(entity.getPasswordRP());
@@ -78,6 +101,13 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
         editTextLastNameRPChange.setText(entity.getLastNameRP());
     }
 
+    /**
+     * Die Methode {@code updateAccount} aktualisiert die Accountdaten in der {@link SturzappDatabase}
+     * @param emailRP       ist die aktualisierte Email des Risikopatienten
+     * @param passwordRP    ist das aktualisierte Passwort des Risikopatienten
+     * @param firstNameRP   ist der aktualisierte Vorname des Risikopatienten
+     * @param lastNameRP    ist der aktualisierte Nachname des Risikopatienten
+     */
     private void updateAccount(String emailRP, String passwordRP, String firstNameRP, String lastNameRP) {
         new Thread(() -> {
             entity.setEmailRP(emailRP);
@@ -92,9 +122,19 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
         }).start();
     }
 
+    /**
+     * Die Methode {@code isValidEmail} überprüft, ob eine gültige Email-Adresse eingegeben wurde
+     * @param email  ist die zu überprüfende Email-Adresse
+     * @return {@code true} wenn die Email-Adresse gültig ist, {@code false} wenn sie nicht gültig ist
+     */
     private boolean isValidEmail(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
+
+    /**
+     * Mit der {@code navigateToRisikopatientStartseite} Methode wird zurück zur
+     * RisikopatientStartseite navigiert
+     */
 
     private void navigateToRisikopatientStartseite() {
         onBackPressed();
