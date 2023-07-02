@@ -6,25 +6,25 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Die Klasse {@code SplashActivity} ist eine Aktivität, die beim Start der Anwendung angezeigt wird
+ * Sie dient als Splash-Bildschirm und zeigt das App-Logo an
+ * Nach einer bestimmten Zeit wechselt sie zur Hauptaktivität der Anwendung
+ */
 public class SplashActivity extends AppCompatActivity {
-    private static final int SPLASH_TIMEOUT = 2000; // Zeit in Millisekunden, bis zum Wechsel zur Hauptaktivität
+    private static final int SPLASH_TIMEOUT = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Setze das Layout für diese Aktivität
         setContentView(R.layout.activity_splash);
 
-        // Erstelle einen Handler, um das automatische Weitergehen zu verzögern
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Erstelle eine Intent für die Hauptaktivität
                 Intent intent = new Intent(SplashActivity.this, MainActivity.class);
                 startActivity(intent);
 
-                // Beende die SplashActivity
                 finish();
             }
         }, SPLASH_TIMEOUT);
