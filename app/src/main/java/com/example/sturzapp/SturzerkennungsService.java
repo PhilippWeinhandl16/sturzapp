@@ -31,6 +31,12 @@ import androidx.core.content.ContextCompat;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
+/**
+ * Der {@code SturzerkennungsService} ist ein Hintergrunddienst,
+ * der den Beschleunigungssensor des Geräts überwacht
+ * um Stürze zu erkennen und bei Sturz eine Notfallbenachrichtigungen an den NFK zu senden
+ * Außerdem erfasst er den aktuellen Standort des Geräts für die Notfallbenachrichtigung
+ */
 public class SturzerkennungsService extends Service implements SensorEventListener {
 
     private SensorManager sensorManager;
@@ -82,7 +88,6 @@ public class SturzerkennungsService extends Service implements SensorEventListen
             long curTime = System.currentTimeMillis();
 
             if ((curTime - lastUpdate) > 100) {
-                long diffTime = (curTime - lastUpdate);
                 lastUpdate = curTime;
 
                 float deltaX = x - last_x;
@@ -93,6 +98,11 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
                 if (acceleration > SHAKE_THRESHOLD) {
                     Toast.makeText(this, "Sturz erkannt!", Toast.LENGTH_LONG).show();
+
+                    /**
+                     * Bei zu hoher Beschleunigung wird die {@code sendEmergencyEmail()} Methode
+                     * aufgerufen
+                     */
                     sendEmergencyEmail();
                 }
 
@@ -113,6 +123,9 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         return null;
     }
 
+    /**
+     * Erstellt einen Notification-Kanal für den Service.
+     */
     private void createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -125,6 +138,10 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         }
     }
 
+    /**
+     * Erstellt und gibt die Service-Notification zurück
+     * @return Die erstellte Notification
+     */
     private Notification buildNotification() {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_launcher_foreground)
@@ -135,6 +152,10 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         return builder.build();
     }
 
+    /**
+     * Sendet eine Notfall-E-Mail an den verknüpften NFK, wenn ein Sturz erkannt wurde
+     * Die E-Mail enthält Informationen zum Sturz und den aktuellen GPS-Standort des Geräts
+     */
     public void sendEmergencyEmail() {
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
@@ -167,6 +188,11 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         }).start();
     }
 
+    /**
+     * Die {@code getCurrentLocation()} Methode ermittelt den aktuellen Standort des Geräts
+     *
+     * @return Der aktuelle Standort des Geräts als Zeichenkette ("Breitengrad, Längengrad")
+     */
     public String getCurrentLocation() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                 ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -193,6 +219,9 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         }
     }
 
+    /**
+     * Implementierung des LocationListener-Interface, um auf Standortänderungen zu reagieren.
+     */
     class LocationListenerImpl implements LocationListener {
         @Override
         public void onLocationChanged(@NonNull Location location) {
