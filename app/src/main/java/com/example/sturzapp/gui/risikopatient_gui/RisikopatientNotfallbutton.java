@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,9 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
 
     public void initializeViews() {
         button_notfallbutton = findViewById(R.id.Button_Notfallbutton);
+        ColorStateList colorStateList = ColorStateList.valueOf(getResources().getColor(R.color.red));
+        button_notfallbutton.setBackgroundTintList(colorStateList);
+
         button_backToStartseite = findViewById(R.id.Button_backToStartseite);
     }
 
