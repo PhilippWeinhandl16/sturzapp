@@ -12,6 +12,10 @@ import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
+/**
+ * Die Klasse {@code RisikopatientStartseite} erweitert {@link AppCompatActivity} und
+ * ist die Startseite für einen Risikopatienten
+ */
 public class RisikopatientStartseite extends AppCompatActivity {
 
     public TextView textViewemailRP_display;
@@ -26,7 +30,6 @@ public class RisikopatientStartseite extends AppCompatActivity {
         initializeViews();
         loadAccountInfo();
 
-        // Überprüfe, ob die Daten angezeigt werden sollen
         Intent intent = getIntent();
         boolean showData = intent.getBooleanExtra("SHOW_DATA", false);
         if (showData) {
@@ -39,13 +42,16 @@ public class RisikopatientStartseite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risikopatient_startseite);
 
-        // Daten aus dem Intent abrufen
+
         Intent intent = getIntent();
         id = intent.getLongExtra("id", -1);
 
         initializeViews();
         loadAccountInfo();
 
+        /**
+         * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+         */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         Button button1 = findViewById(R.id.buttonDatenAendern);
@@ -56,7 +62,10 @@ public class RisikopatientStartseite extends AppCompatActivity {
             }
         });
 
-        // Button um Daten von Notfallkontakt zu ändern
+        /**
+         * Mit dem {@code Button2} wird bei Klick die {@code navigateToRisikopatientNotfallkontaktAendern()}
+         * Methode aufgerufen
+         */
         Button Button2 = findViewById(R.id.buttonNotfallkontakt_aendern);
         Button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +74,10 @@ public class RisikopatientStartseite extends AppCompatActivity {
             }
         });
 
+        /**
+         * Mit dem {@code button_zumNotfallbutton} wird bei Klick die
+         * {@code navigateToRisikopatientNotfallbutton()} Methode aufgerufen
+         */
         Button button_zumNotfallbutton = findViewById(R.id.button_zumNotfallbutton);
         button_zumNotfallbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,16 +87,26 @@ public class RisikopatientStartseite extends AppCompatActivity {
         });
     }
 
+    /**
+     * Mit der {@code initializeViews()} Methode werden die textView-Felder initialisiert
+     */
     private void initializeViews() {
         textViewemailRP_display = findViewById(R.id.textViewemailRP_display);
         textViewfirstNameRP_display = findViewById(R.id.textViewfirstNameRP_display);
         textViewlastNameRP_display = findViewById(R.id.textViewlastNameRP_display);
     }
 
+    /**
+     * Die Methode {@code loadAccountInfo()} lädt, zeigt die Accountinformationen des Risikopatienten
+     * in den textView-Feldern an und aktualisiert diese
+     */
     private void loadAccountInfo() {
+
+        /**
+         * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+         */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
         new Thread(() -> {
-            // aus db auslesen
             AccountEntity entity = db.accountDao().getAccountById((int) id);
 
             runOnUiThread(new Thread(() -> {
@@ -96,17 +119,30 @@ public class RisikopatientStartseite extends AppCompatActivity {
         }).start();
     }
 
+    /**
+     * Die Methode {@code navigateToRisikopatientDatenAendern()} navigiert zur Aktivität
+     * {@link RisikopatientDatenAendern}, um die Daten des Risikopatienten ändern zu können
+     */
     private void navigateToRisikopatientDatenAendern() {
         Intent intent = new Intent(RisikopatientStartseite.this, RisikopatientDatenAendern.class);
         intent.putExtra("id", id);
         startActivity(intent);
     }
 
+    /**
+     * Die Methode {@code navigateToRisikopatientNotfallbutton()} navigiert zur Aktivität
+     * {@link RisikopatientNotfallbutton}
+     */
     private void navigateToRisikopatientNotfallbutton() {
         Intent intent1 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallbutton.class);
+        intent1.putExtra("id", id);
         startActivity(intent1);
     }
 
+    /**
+     * Die Methode {@code navigateToRisikopatientNotfallkontaktAendern()} navigiert zur Aktivität
+     * {@code RisikopatientNotfallkontaktAendern}, in der man den Notfallkontakt ändern kann
+     */
     private void navigateToRisikopatientNotfallkontaktAendern() {
         Intent intent2 = new Intent(RisikopatientStartseite.this, RisikopatientNotfallkontaktAendern.class);
         intent2.putExtra("id", id);
