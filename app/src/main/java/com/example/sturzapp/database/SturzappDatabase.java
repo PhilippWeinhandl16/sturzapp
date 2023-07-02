@@ -27,4 +27,5 @@ public abstract class SturzappDatabase extends RoomDatabase {
         }
         return instance;
     }
+
 }
