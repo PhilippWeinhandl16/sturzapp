@@ -41,6 +41,9 @@ public class RisikopatientDatenAendern extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        /**
+         * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+         */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         new Thread(() -> {
