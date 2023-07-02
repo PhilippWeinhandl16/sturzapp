@@ -67,11 +67,11 @@
         android:id="@+id/textView_zugehoeriger_notfallkontakt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/buttonDatenAendern"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
+        android:layout_marginTop="16dp"
         android:text="@string/change_related_emergency_contact"
-        android:textSize="26dp"
+        android:textSize="24dp"
         android:textStyle="bold" />
 
     <Button
