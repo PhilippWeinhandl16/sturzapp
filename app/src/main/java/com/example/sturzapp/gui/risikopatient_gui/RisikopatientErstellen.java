@@ -121,6 +121,9 @@ public class RisikopatientErstellen extends AppCompatActivity {
          */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
+        /**
+         * Der Account wird hier mit Daten befüllt
+         */
         new Thread(() -> {
             AccountEntity account = new AccountEntity(
                     emailRP,
