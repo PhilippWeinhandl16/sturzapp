@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
                 SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
+
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -69,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 navigateToRisikopatientErstellen();
+
             }
         });
     }

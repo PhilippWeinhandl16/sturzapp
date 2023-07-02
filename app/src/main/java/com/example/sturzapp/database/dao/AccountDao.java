@@ -66,6 +66,7 @@ public interface AccountDao {
     @Query("SELECT * FROM accounts WHERE emailRP = :email")
     AccountEntity getAccountByEmail(String email);
 
+
 }
 
 

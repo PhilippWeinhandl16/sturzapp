@@ -141,9 +141,9 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
         new Thread(() -> {
             // Account-Informationen aus der Datenbank abrufen
-            AccountEntity account = db.accountDao().getAccountById(12);
+            AccountEntity account = db.accountDao().getAccountById(1);
 
-            // Ersetze 1 durch die entsprechende ID des eingeloggten Benutzers
+            // Ersetze 12 durch die entsprechende ID des eingeloggten Benutzers
 
             String subject = "Notfallmeldung";
             String body = "Ihr Risikopatient hat einen Sturz gehabt! Womöglich benötigt er Hilfe";
@@ -233,5 +233,4 @@ public class SturzerkennungsService extends Service implements SensorEventListen
             // Standortstatusänderungen behandeln, falls erforderlich
         }
     }
-
 }
