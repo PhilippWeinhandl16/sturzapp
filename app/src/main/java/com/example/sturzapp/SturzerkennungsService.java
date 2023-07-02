@@ -18,15 +18,15 @@ import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Looper;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
@@ -45,6 +45,8 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
     private LocationManager locationManager;
     private LocationListener locationListener;
+
+    private static final int PERMISSION_REQUEST_CODE = 123;
 
     @Override
     public void onCreate() {
@@ -139,7 +141,7 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
         new Thread(() -> {
             // Account-Informationen aus der Datenbank abrufen
-            AccountEntity account = db.accountDao().getAccountById(1);
+            AccountEntity account = db.accountDao().getAccountById(12);
 
             // Ersetze 1 durch die entsprechende ID des eingeloggten Benutzers
 
@@ -176,28 +178,35 @@ public class SturzerkennungsService extends Service implements SensorEventListen
         }).start();
     }
 
-    private String getCurrentLocation() {
-        // Überprüfen, ob die Berechtigung für den Standortzugriff gewährt wurde
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Berechtigung nicht vorhanden, Abbruch oder Berechtigung anfordern
+    public String getCurrentLocation() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // Berechtigungen noch nicht erteilt, fordere sie an
+            Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+            Uri uri = Uri.fromParts("package", getPackageName(), null);
+            intent.setData(uri);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
             return "Standortberechtigung nicht erteilt";
         }
 
-        // Den Standortanbieter auswählen und Standort abrufen
-        LocationListener locationListener = new LocationListenerImpl();
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0, locationListener);
-        Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        if (lastKnownLocation != null) {
-            double latitude = lastKnownLocation.getLatitude();
-            double longitude = lastKnownLocation.getLongitude();
-            return latitude + ", " + longitude;
-        } else {
-            return "Standort nicht verfügbar";
+        // Standort synchron abrufen
+        try {
+            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (lastKnownLocation != null) {
+                double latitude = lastKnownLocation.getLatitude();
+                double longitude = lastKnownLocation.getLongitude();
+                return latitude + ", " + longitude;
+            } else {
+                return "Standort nicht verfügbar";
+            }
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            return "Standortberechtigung nicht erteilt";
         }
     }
 
-    private class LocationListenerImpl implements LocationListener {
+    class LocationListenerImpl implements LocationListener {
         @Override
         public void onLocationChanged(@NonNull Location location) {
             // Standortaktualisierungen empfangen
@@ -221,7 +230,8 @@ public class SturzerkennungsService extends Service implements SensorEventListen
 
         @Override
         public void onStatusChanged(String provider, int status, Bundle extras) {
-            // Standortanbieterstatus geändert
+            // Standortstatusänderungen behandeln, falls erforderlich
         }
     }
+
 }

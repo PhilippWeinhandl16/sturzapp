@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,7 +14,6 @@ import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
 public class RisikopatientNotfallbutton extends AppCompatActivity {
-
 
     private Button button_notfallbutton;
     private Button button_backToStartseite;
@@ -27,11 +25,9 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
 
         initializeViews();
         setupButtonListeners();
-
     }
 
     public void initializeViews() {
-
         button_notfallbutton = findViewById(R.id.Button_Notfallbutton);
         button_backToStartseite = findViewById(R.id.Button_backToStartseite);
     }
@@ -50,11 +46,9 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
                 navigateToRisikopatientStartseite();
             }
         });
-
     }
 
     public void sendEmergencyEmail() {
-
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
         new Thread(() -> {
             // Account-Informationen aus der Datenbank abrufen
@@ -71,7 +65,6 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
             intent.putExtra(Intent.EXTRA_TEXT, body);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // Setze die FLAG_ACTIVITY_NEW_TASK Flag
 
-// Überprüfen, ob eine Activity zum Handhaben des Intents verfügbar ist
             PackageManager packageManager = getPackageManager();
             if (intent.resolveActivity(packageManager) != null) {
                 // E-Mail-Activity starten
@@ -82,8 +75,8 @@ public class RisikopatientNotfallbutton extends AppCompatActivity {
             }
         }).start();
     }
-        public void navigateToRisikopatientStartseite () {
-            Intent intent = new Intent(RisikopatientNotfallbutton.this, RisikopatientStartseite.class);
-            startActivity(intent);
+
+    public void navigateToRisikopatientStartseite() {
+        onBackPressed();
     }
 }

@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 String passwordRP = editTextpasswordRP.getText().toString();
 
                 SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
-                //speichern
 
                 new Thread(new Runnable() {
                     @Override
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 navigateToRisikopatientErstellen();
-
             }
         });
     }
@@ -82,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void navigateToRisikopatientStartseite(long accountId) {
         Intent intent2 = new Intent(MainActivity.this, RisikopatientStartseite.class);
-        intent2.putExtra("id", (long) accountId);
+        intent2.putExtra("id", accountId);
         startActivity(intent2);
     }
 
