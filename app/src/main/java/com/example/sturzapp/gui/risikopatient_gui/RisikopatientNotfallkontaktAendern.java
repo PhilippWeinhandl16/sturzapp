@@ -14,6 +14,11 @@ import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 
+
+/**
+ * Die Klasse {@code RisikopatientNotfallkontaktAendern} erweitert {@link AppCompatActivity}
+ * und sie ermöglicht die Änderung des Notfallkontakts für einen Risikopatienten
+ */
 public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     private AccountEntity entity = null;
@@ -27,12 +32,20 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riskiopatient_notfallkontakt_aendern);
 
+
+        /**
+         * Die {@code initializeViews()} Methode initialisiert die EditText und Button Views
+         */
         initializeViews();
 
         button_saveChanges.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                /**
+                 * Mit der {@code saveChanges()} Methode werden die Änderungen
+                 * bei Klick auf den {@code button_saveChanges} gespeichert.
+                 */
                 saveChanges();
 
             }
@@ -40,6 +53,9 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
         Intent intent = getIntent();
 
+        /**
+         * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+         */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         // Auslesen
@@ -57,7 +73,9 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     }
 
-
+    /**
+     * Die {@code initializeViews()} Methode initialisiert die EditText und Button Objekte
+     */
     private void initializeViews() {
 
         editTextemailNFK = findViewById(R.id.editTextemailNFK_change);
@@ -67,6 +85,10 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     }
 
+    /**
+     * Die {@code displayAccountInfo()} Methode zeigt die Informationen des
+     * Risikopatienten-Accounts in den EditText Feldern an
+     */
     private void displayAccountInfo () {
 
         editTextemailNFK.setText(entity.getEmailNFK());
@@ -74,6 +96,9 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     }
 
+    /**
+     * Die {@code saveChanges()} Methode speichert die vorgenommenen Änderungen der Daten
+     */
     private void saveChanges() {
 
         if (entity != null) {
@@ -103,6 +128,11 @@ public class RisikopatientNotfallkontaktAendern extends AppCompatActivity {
 
     }
 
+    /**
+     * Die Methode überprüft, ob eine gültige Email-Adresse eingegeben wurde
+     * @param email  ist die zu überprüfende Email-Adresse
+     * @return {@code true} wenn die Email-Adresse gültig ist, {@code false} wenn sie nicht gültig ist
+     */
     private boolean isValidEmail(String email) {
         // Verwendung des vordefinierten Musters für E-Mail-Validierung
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
