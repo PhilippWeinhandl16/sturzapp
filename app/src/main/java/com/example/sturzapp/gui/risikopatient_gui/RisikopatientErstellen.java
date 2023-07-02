@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.sturzapp.MainActivity;
 //import com.example.sturzapp.PasswordHasher;
+import com.example.sturzapp.PasswordHasher;
 import com.example.sturzapp.R;
 import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
@@ -85,13 +86,13 @@ public class RisikopatientErstellen extends AppCompatActivity {
             return;
         }
 
-       /* String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);*/
+       String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         new Thread(() -> {
             AccountEntity account = new AccountEntity(
                     emailRP,
-                    passwordRP,
+                    hashedPasswordRP,
                     firstNameRP,
                     lastNameRP,
                     emailNFK,

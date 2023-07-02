@@ -49,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
                         AccountEntity entity = db.accountDao().getAccountByEmail(emailRP);
 
                         if (entity != null) {
-                            String PasswordRP = passwordRP;
+                            String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
 
-                            if (PasswordRP.equals(entity.getPasswordRP())) {
+                            if (hashedPasswordRP.equals(entity.getPasswordRP())) {
                                 navigateToRisikopatientStartseite(entity.getId());
                             } else {
                                 showToast("Ihr eingegebenes Passwort ist nicht richtig");

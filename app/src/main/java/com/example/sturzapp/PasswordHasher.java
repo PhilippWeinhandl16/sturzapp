@@ -1,4 +1,4 @@
-/*package com.example.sturzapp;
+package com.example.sturzapp;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -27,4 +27,4 @@ public class PasswordHasher {
         }
         return result.toString();
     }
-}*/
+}

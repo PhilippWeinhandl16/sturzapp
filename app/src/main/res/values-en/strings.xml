@@ -20,7 +20,7 @@
     <string name="first_name">First Name</string>
     <string name="last_name">Surname</string>
     <string name="change_data">Change data</string>
-    <string name="create_risk_patient">Hier erstellen Sie einen Risikopatienten</string>
+    <string name="create_risk_patient">Here you can create a Risk Patient</string>
     <string name="input_emergency_contact">Input of the emergency contact</string>
     <string name="full_name">Name</string>
     <string name="back_to_login_page">Back to the Log in Page</string>
