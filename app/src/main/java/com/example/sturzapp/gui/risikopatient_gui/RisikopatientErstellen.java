@@ -19,6 +19,11 @@ import com.example.sturzapp.database.SturzappDatabase;
 import com.example.sturzapp.database.entity.AccountEntity;
 import com.example.sturzapp.gui.risikopatient_gui.RisikopatientStartseite;
 
+
+/**
+ * Die Klasse {@code RisikopatientErstellen} erweitert {@link AppCompatActivity} und in dieser Klasse
+ * kann ein neuer Risikopatient-Account erstellt werden
+ */
 public class RisikopatientErstellen extends AppCompatActivity {
 
     private EditText editTextemailRP_input;
@@ -35,12 +40,20 @@ public class RisikopatientErstellen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_risikopatient_erstellen);
 
-            initializeViews();
+        /**
+         * Die {@code initializeViews} Methode initialisiert die EditText-Felder
+         */
+        initializeViews();
 
         Button button = findViewById(R.id.buttonZurückZurMainActivity);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /**
+                 * Mit der {@code navigateToMainActivity()} Methode wird bei Klick des Buttons:
+                 * {@code button} zurück zur {@link MainActivity} Klasse navigiert
+                 */
                 navigateToMainActivity();
 
             }
@@ -50,12 +63,20 @@ public class RisikopatientErstellen extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                /**
+                 * Mit der {@code createAccount()} Methode wird bei Klick des Buttons:
+                 * {@code button2} ein neuer Risikopatient-Account erstellt
+                 */
                 createAccount();
 
             }
         });
     }
 
+    /**
+     * Mit der {@code initializeViews()} Methode werden die EditText-Felder initialisiert
+     */
     private void initializeViews() {
 
         editTextemailRP_input = findViewById(R.id.editTextemailRP_input);
@@ -67,6 +88,9 @@ public class RisikopatientErstellen extends AppCompatActivity {
 
     }
 
+    /**
+     * Mit der {@code createAccount()} Methode wird ein neuer Risikopatient-Account erstellt
+     */
     private void createAccount() {
 
         String emailRP = editTextemailRP_input.getText().toString();
@@ -86,7 +110,15 @@ public class RisikopatientErstellen extends AppCompatActivity {
             return;
         }
 
+        /**
+         * Hier wird das {@code hashedPasswordRp} des Risikopatienten-Accounts gehasht
+         */
        String hashedPasswordRP = PasswordHasher.hashPassword(passwordRP);
+
+
+        /**
+         * Hier wird eine {@link SturzappDatabase} Instanz erstellt
+         */
         SturzappDatabase db = SturzappDatabase.getInstance(getApplicationContext());
 
         new Thread(() -> {
@@ -106,6 +138,10 @@ public class RisikopatientErstellen extends AppCompatActivity {
 
     }
 
+    /**
+     * Mit der {@code navigateToMainActivity()} Methode wird
+     * zurück zur {@link MainActivity} Klasse navigiert
+     */
     private void navigateToMainActivity() {
 
         Intent intent = new Intent(RisikopatientErstellen.this, MainActivity.class);
@@ -113,6 +149,12 @@ public class RisikopatientErstellen extends AppCompatActivity {
 
     }
 
+
+    /**
+     * Die Methode überprüft, ob eine gültige Email-Adresse eingegeben wurde
+     * @param email  ist die zu überprüfende Email-Adresse
+     * @return {@code true} wenn die Email-Adresse gültig ist, {@code false} wenn sie nicht gültig ist
+     */
     private boolean isValidEmail(String email) {
         return Patterns.EMAIL_ADDRESS.matcher(email).matches();
 
